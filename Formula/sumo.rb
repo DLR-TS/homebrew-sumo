@@ -23,6 +23,15 @@ class Sumo < Formula
     end
   end
 
+  def caveats; <<~EOS
+    In order to let X11 start automatically whenever a GUI-based SUMO application
+    (e.g., "sumo-gui") is called, you need to log out and in again.
+    Alternatively, start X11 manually by pressing cmd-space and entering "XQuartz".
+
+  EOS
+  end
+
+
   test do
     # `test do` will create, run in and delete a temporary directory.
     #
