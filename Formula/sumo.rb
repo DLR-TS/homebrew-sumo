@@ -9,6 +9,7 @@ class Sumo < Formula
 
   depends_on "cmake" => :build
   depends_on "fox"
+  # depends_on "gcc"
   depends_on "gdal"
   depends_on "proj"
   depends_on "xerces-c"
@@ -16,8 +17,16 @@ class Sumo < Formula
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
+
+    ENV["SUMO_HOME"] = #{prefix}
+    clang_flags = []
+
+    if ENV.compiler == :clang
+      clang_flags << "-stdlib=libstdc++ -fsanitize=undefined,address,integer,unsigned-integer-overflow -fno-omit-frame-pointer -fsanitize-blacklist=$SUMO_HOME/build/clang_sanitize_blacklist.txt"
+    end
+
     mkdir "build/cmake-build" do # creates and changes to dir in block
-      system "cmake", "../..", *std_cmake_args
+      system "cmake", "../..", *clang_flags, *std_cmake_args
       system "make"
       system "make", "install"
     end
@@ -28,6 +37,8 @@ class Sumo < Formula
     (e.g., "sumo-gui") is called, you need to log out and in again.
     Alternatively, start X11 manually by pressing cmd-space and entering "XQuartz".
 
+    You might want to set your SUMO_HOME environment variable:
+      export SUMO_HOME="#{prefix}"
   EOS
   end
 
