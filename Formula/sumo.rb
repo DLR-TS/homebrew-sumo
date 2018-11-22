@@ -1,9 +1,9 @@
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                https://www.rubydoc.info/github/Homebrew/brew/master/Formula
 class Sumo < Formula
-  desc "SUMO – Simulation of Urban MObility"
+  desc "Simulation of Urban MObility"
   homepage "http://sumo.dlr.de"
-  url "https://prdownloads.sourceforge.net/sumo/sumo-src-1.0.1.tar.gz"
+  url "https://downloads.sourceforge.net/project/sumo/sumo/version%201.0.1/sumo-src-1.0.1.tar.gz"
   sha256 "6e46a1568b1b3627f06c999c798feceb37f17e92aadb4d517825b01c797ec531"
   head "https://github.com/eclipse/sumo.git"
 
@@ -11,8 +11,8 @@ class Sumo < Formula
   depends_on "fox"
   depends_on "gdal"
   depends_on "proj"
-  depends_on "xerces-c"
   depends_on :x11 # TODO: find convenient way to explicitly define cask dependecy ("xquartz")
+  depends_on "xerces-c"
 
   # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
   # (use 'brew deps --tree sumo' to see dependencies of higher levels)
@@ -20,8 +20,6 @@ class Sumo < Formula
   cxxstdlib_check :skip
 
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
-
     ENV["SUMO_HOME"] = prefix
 
     mkdir "build/cmake-build" do # creates and changes to dir in block
@@ -42,11 +40,12 @@ class Sumo < Formula
   EOS
   end
 
-
   test do # will create, run in and delete a temporary directory
     # This small test verifies the functionality of SUMO.
     # Run with 'brew test sumo'.
     # Options passed to 'brew install' such as '--HEAD' also need to be provided to 'brew test'.
+
+    ENV["SUMO_HOME"] = prefix
 
     (testpath/"nodes.xml").write <<~EOS
       <nodes>
@@ -61,7 +60,7 @@ class Sumo < Formula
       </edges>
     EOS
 
-    system "#{bin}/netconvert", "–n", "#{testpath}/nodes.xml", "–e", "#{testpath}/edges.xml", "–o", "#{testpath}/net.xml"
+    system "#{bin}/netconvert", "-n", "#{testpath}/nodes.xml", "-e", "#{testpath}/edges.xml", "-o", "#{testpath}/net.xml"
 
     (testpath/"flows.xml").write <<~EOS
       <routes>
@@ -69,6 +68,6 @@ class Sumo < Formula
       </routes>
     EOS
 
-    system "#{bin}/sumo", "–n", "#{testpath}/net.xml", "–r", "#{testpath}/flows.xml"
+    system "#{bin}/sumo", "-n", "#{testpath}/net.xml", "-r", "#{testpath}/flows.xml"
   end
 end
