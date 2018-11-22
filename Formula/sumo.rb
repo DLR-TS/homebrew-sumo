@@ -9,24 +9,23 @@ class Sumo < Formula
 
   depends_on "cmake" => :build
   depends_on "fox"
-  # depends_on "gcc"
   depends_on "gdal"
   depends_on "proj"
   depends_on "xerces-c"
   depends_on :x11 # TODO: find convenient way to explicitly define cask dependecy ("xquartz")
 
+  # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
+  # (use 'brew deps --tree sumo' to see dependencies of higher levels)
+  # also see: https://github.com/davidchall/homebrew-hep/issues/28
+  cxxstdlib_check :skip
+
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
 
-    ENV["SUMO_HOME"] = #{prefix}
-    clang_flags = []
-
-    if ENV.compiler == :clang
-      clang_flags << "-stdlib=libstdc++ -fsanitize=undefined,address,integer,unsigned-integer-overflow -fno-omit-frame-pointer -fsanitize-blacklist=$SUMO_HOME/build/clang_sanitize_blacklist.txt"
-    end
+    ENV["SUMO_HOME"] = prefix
 
     mkdir "build/cmake-build" do # creates and changes to dir in block
-      system "cmake", "../..", *clang_flags, *std_cmake_args
+      system "cmake", "../..", *std_cmake_args
       system "make"
       system "make", "install"
     end
@@ -37,8 +36,9 @@ class Sumo < Formula
     (e.g., "sumo-gui") is called, you need to log out and in again.
     Alternatively, start X11 manually by pressing cmd-space and entering "XQuartz".
 
-    You might want to set your SUMO_HOME environment variable:
+    Don't forget to set your SUMO_HOME environment variable:
       export SUMO_HOME="#{prefix}"
+
   EOS
   end
 
@@ -48,11 +48,12 @@ class Sumo < Formula
     #
     # This test will fail and we won't accept that! For Homebrew/homebrew-core
     # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test sumo-src`. Options passed
+    # software. Run the test with `brew test sumo`. Options passed
     # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
     #
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system "#{bin}/program", "do", "something"`.
+
     system "false"
   end
 end
