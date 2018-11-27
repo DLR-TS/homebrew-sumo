@@ -5,5 +5,5 @@ For more information on Brew Taps, see https://docs.brew.sh/Taps.
 
 ## Install
 
-    brew tap schwamborn/sumo
+    brew tap dlr-ts/sumo
     brew install sumo
