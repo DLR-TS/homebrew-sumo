@@ -1,10 +1,9 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://www.rubydoc.info/github/Homebrew/brew/master/Formula
 class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "http://sumo.dlr.de"
   url "https://downloads.sourceforge.net/project/sumo/sumo/version%201.0.1/sumo-src-1.0.1.tar.gz"
   sha256 "6e46a1568b1b3627f06c999c798feceb37f17e92aadb4d517825b01c797ec531"
+  revision 1
   head "https://github.com/eclipse/sumo.git"
 
   depends_on "cmake" => :build
@@ -13,6 +12,9 @@ class Sumo < Formula
   depends_on "proj"
   depends_on :x11 # TODO: find convenient way to explicitly define cask dependecy ("xquartz")
   depends_on "xerces-c"
+  depends_on "gl2ps" => :optional
+  depends_on "open-scene-graph" => :optional
+  depends_on "swig" => :optional
 
   # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
   # (use 'brew deps --tree sumo' to see dependencies of higher levels)
@@ -36,6 +38,9 @@ class Sumo < Formula
 
     Don't forget to set your SUMO_HOME environment variable:
       export SUMO_HOME="#{prefix}"
+
+    Please report any problems with this formula directly to the eclipse/sumo issue tracker:
+    https://github.com/eclipse/sumo/issues
 
   EOS
   end
