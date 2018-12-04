@@ -33,18 +33,19 @@ class Sumo < Formula
 
   def install
     ENV["SUMO_HOME"] = prefix
+    cmake_args = *std_cmake_args
 
     # bottling uses default formula options and we want minimal requirement bottles,
     # therefore, by default, do not check for optional libs
-    cmake_opt_libs_arg = "-DCHECK_OPTIONAL_LIBS=OFF"
-
     if build.with?("ffmpeg") || build.with?("gdal") || build.with?("gl2ps") || build.with?("open-scene-graph") || build.with?("swig")
       ohai "Enabling check for optional libraries..."
-      cmake_opt_libs_arg = "-DCHECK_OPTIONAL_LIBS=ON"
+      cmake_args << "-DCHECK_OPTIONAL_LIBS=ON"
+    else
+      cmake_args << "-DCHECK_OPTIONAL_LIBS=OFF"
     end
 
     mkdir "build/cmake-build" do # creates and changes to dir in block
-      system "cmake", "../..", cmake_opt_libs_arg, *std_cmake_args
+      system "cmake", "../..", cmake_args
       system "make"
       system "make", "install"
     end
