@@ -1,7 +1,7 @@
 class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "http://sumo.dlr.de"
-  revision 2
+  revision 3
   head "https://github.com/eclipse/sumo.git"
 
   stable do
@@ -134,10 +134,17 @@ index 5273e06..a18b5ed 100644
  else ()
      target_link_libraries(testmicrosim -Wl,--start-group microsim microsim_actions microsim_devices microsim_cfmodels microsim_lcmodels microsim_pedestrians microsim_trigger microsim_traffic_lights mesosim traciserver libsumostatic netload microsim_output mesosim ${commonvehiclelibs} -Wl,--end-group ${GTEST_BOTH_LIBRARIES} ${GRPC_LIBS})
 diff --git a/unittest/src/utils/common/CMakeLists.txt b/unittest/src/utils/common/CMakeLists.txt
-index aff01dd..fb58dd1 100644
+index aff01dd..6920767 100644
 --- a/unittest/src/utils/common/CMakeLists.txt
 +++ b/unittest/src/utils/common/CMakeLists.txt
-@@ -9,7 +9,7 @@ add_executable(testcommon
+@@ -1,6 +1,5 @@
+ add_executable(testcommon
+         StringTokenizerTest.cpp
+-        FileHelpersTest.cpp
+         StringUtilsTest.cpp
+         TplConvertTest.cpp
+         RGBColorTest.cpp
+@@ -9,7 +8,7 @@ add_executable(testcommon
  add_test(NAME testcommon COMMAND $<TARGET_FILE:testcommon>)
  set_target_properties(testcommon PROPERTIES OUTPUT_NAME_DEBUG testcommonD)
  
