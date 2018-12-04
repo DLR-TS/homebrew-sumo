@@ -45,7 +45,7 @@ class Sumo < Formula
     end
 
     mkdir "build/cmake-build" do # creates and changes to dir in block
-      system "cmake", "../..", cmake_args
+      system "cmake", "../..", *cmake_args
       system "make"
       system "make", "install"
     end
