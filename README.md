@@ -8,6 +8,29 @@ For more information on Brew Taps, see https://docs.brew.sh/Taps.
     brew tap dlr-ts/sumo
     brew install sumo
 
+## Usage
+
+By default, the above command lines install a bottled SUMO stable version (currently ```1.1.0```) with minimal requirements (```fox```, ```proj```, ```xerces-c```).
+Alternatively, ```brew``` can compile SUMO from source with the following command line options:
+
+
+    brew install [OPTIONS] sumo
+    
+    ==> Options
+    --with-ffmpeg
+        Build with ffmpeg support
+    --with-gdal
+        Build with gdal support
+    --with-gl2ps
+        Build with gl2ps support
+    --with-open-scene-graph
+        Build with open-scene-graph support
+    --with-swig
+        Build with swig support
+    --HEAD
+        Install HEAD version
+
+
 ## Troubleshooting
 
 If you encounter any problems, please first check your ```brew``` installation (alse see [Homebrew Troubleshooting](https://docs.brew.sh/Troubleshooting)):
