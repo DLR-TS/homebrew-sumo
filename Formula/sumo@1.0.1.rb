@@ -1,4 +1,4 @@
-class SumoAT1.0.1 < Formula
+class SumoAT101 < Formula
   desc "Simulation of Urban MObility"
   homepage "http://sumo.dlr.de"
 
