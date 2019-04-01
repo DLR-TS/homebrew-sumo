@@ -1,7 +1,6 @@
 class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "http://sumo.dlr.de"
-  revision 1
   head "https://github.com/eclipse/sumo.git"
 
   stable do
