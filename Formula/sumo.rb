@@ -1,6 +1,7 @@
 class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "http://sumo.dlr.de"
+  revision 1
   head "https://github.com/eclipse/sumo.git"
 
   stable do
@@ -57,7 +58,7 @@ class Sumo < Formula
     Alternatively, start X11 manually by pressing cmd-space and entering "XQuartz".
 
     Don't forget to set your SUMO_HOME environment variable:
-      export SUMO_HOME="#{prefix}"
+      export SUMO_HOME="#{prefix}/share/sumo"
 
     Please report any problems with this formula directly to the eclipse/sumo issue tracker:
     https://github.com/eclipse/sumo/issues
