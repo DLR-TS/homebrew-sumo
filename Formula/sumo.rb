@@ -1,18 +1,11 @@
 class Sumo < Formula
   desc "Simulation of Urban MObility"
-  homepage "http://sumo.dlr.de"
+  homepage "https://projects.eclipse.org/projects/technology.sumo"
   head "https://github.com/eclipse/sumo.git"
 
   stable do
-    url "https://github.com/eclipse/sumo/archive/v1_1_0.tar.gz"
-    sha256 "11aeaa8abaa8008e4f13f82cd77797ffd803d20e345c741966a70a3dc1f55c2e"
-  end
-
-  bottle do
-    root_url "https://dl.bintray.com/dlr-ts/bottles-sumo"
-    cellar :any
-    sha256 "1aa4c8af39e8eceda418bf96593751fb052c42233012a1bd8528bd739e92f6f3" => :mojave
-    sha256 "e63a60b1aa86e0045eb92b0d88e7611505dc4d47cb46a79078ee0f5a56be5a8b" => :high_sierra
+    url "https://github.com/eclipse/sumo/archive/v1_2_0.tar.gz"
+    sha256 "2f749ece251ca1e0c9b77535faaadd77efcf8aa14e0eb9c72fe0e29a4ab16d50"
   end
 
   depends_on "cmake" => :build

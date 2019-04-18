@@ -1,6 +1,6 @@
 # Homebrew Tap for SUMO
 
-This tap allows you install [SUMO](http://sumo.dlr.de) with [Homebrew](https://brew.sh/) on macOS.
+This tap allows you install [SUMO](https://projects.eclipse.org/projects/technology.sumo) with [Homebrew](https://brew.sh/) on macOS.
 For more information on Brew Taps, see https://docs.brew.sh/Taps.
 
 ## Install
@@ -8,9 +8,13 @@ For more information on Brew Taps, see https://docs.brew.sh/Taps.
     brew tap dlr-ts/sumo
     brew install sumo
 
+## Upgrade from older SUMO versions installed with Homebrew
+
+    brew upgrade sumo
+
 ## Usage
 
-By default, the above command lines install a bottled SUMO stable version (currently ```1.1.0```) with minimal requirements (```fox```, ```proj```, ```xerces-c```).
+By default, the above command lines install a bottled SUMO stable version (currently ```1.2.0```) with minimal requirements (```fox```, ```proj```, ```xerces-c```).
 Alternatively, ```brew``` can compile SUMO from source with the following command line options:
 
 
