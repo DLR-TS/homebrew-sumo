@@ -17,6 +17,6 @@ before_install:
 
 script:
   - brew tap dlr-ts/sumo
-  - if [[ "$SUMO_VERSION" == "head" ]]; then brew install --HEAD sumo; fi
-  - if [[ "$SUMO_VERSION" == "release" ]]; then brew install sumo; fi
+  - if [[ "$SUMO_VERSION" == "head" ]]; then brew install -v --HEAD sumo; fi
+  - if [[ "$SUMO_VERSION" == "release" ]]; then brew install -v sumo; fi
   - brew test sumo
