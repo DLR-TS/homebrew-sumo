@@ -1,0 +1,19 @@
+language: c++
+
+os: osx
+
+compiler: clang
+
+env:
+  - TOOLCHAIN=cmake
+  - SUMO_VERSION=release
+  - SUMO_VERSION=head
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
+
+script:
+  - brew tap dlr-ts/sumo
+  - if [[ "$SUMO_VERSION" == "head" ]]; then brew install --HEAD sumo; fi
+  - if [[ "$SUMO_VERSION" == "release" ]]; then brew install sumo; fi
+  - brew test sumo
