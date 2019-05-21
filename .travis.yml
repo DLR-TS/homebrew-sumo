@@ -5,12 +5,11 @@ os: osx
 compiler: clang
 
 env:
-  - TOOLCHAIN=cmake
   - SUMO_VERSION=release
   - SUMO_VERSION=head
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
+  - brew update
 
 script:
   - brew tap dlr-ts/sumo
