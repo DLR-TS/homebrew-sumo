@@ -1,3 +1,5 @@
+[![Build Test Status](https://travis-ci.org/dlr-ts/homebrew-sumo.svg?branch=master)](https://travis-ci.org/dlr-ts/homebrew-sumo)
+
 # Homebrew Tap for SUMO
 
 This tap allows you to install [SUMO](https://projects.eclipse.org/projects/technology.sumo) with [Homebrew](https://brew.sh/) on macOS.
