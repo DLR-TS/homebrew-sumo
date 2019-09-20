@@ -9,6 +9,7 @@ class Sumo < Formula
   end
 
   bottle do
+    root_url "https://dl.bintray.com/dlr-ts/bottles-sumo"
     cellar :any
     sha256 "65c2885a02e5034daf38addb2dd04c8cefcd5f645d8de1b6e83b73d15c4de424" => :high_sierra
     sha256 "e4cc7065ccc24c770044d0c5fbde4d7cb144f695fae62da76ac67f8303f51863" => :mojave
