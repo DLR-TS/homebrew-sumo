@@ -24,9 +24,9 @@ script:
 ### Bintray deployment ###
 before_deploy:
   - echo '===> Commit was tagged with '$TRAVIS_TAG', starting bottle deployment...'
-  - brew uninstall -v sumo
-  - brew untap -v dlr-ts/sumo
-  - brew tap -v dlr-ts/sumo
+  - brew uninstall sumo
+  - brew untap dlr-ts/sumo
+  - brew tap dlr-ts/sumo
   - brew cask install -v xquartz
   - brew install --build-bottle -v sumo
   - brew bottle -v sumo
