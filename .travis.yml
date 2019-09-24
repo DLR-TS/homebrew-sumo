@@ -24,10 +24,10 @@ script:
 ### Bintray deployment ###
 before_deploy:
   - echo '===> Commit was tagged with '$TRAVIS_TAG', starting bottle deployment...'
-  - brew tap dlr-ts/sumo
-  - brew cask install -v xquartz
-  - echo '===> building bottle...'
   - brew uninstall -v sumo
+  - brew untap -v dlr-ts/sumo
+  - brew tap -v dlr-ts/sumo
+  - brew cask install -v xquartz
   - brew install --build-bottle -v sumo
   - brew bottle -v sumo
 
@@ -46,9 +46,4 @@ deploy:
   key:
     secure: o8um7LNtk8lXCojpDGKUsbRwRwVKyC2DGCzc0Pvz0IBMjw34aYjPcgHCyFqAqpMiUW9DK+RFk+3+aHEJ+1W7uGcPdx/Zhj/QAfqwp6gky6D/PoPbq7bn+c6mZwRi2umdyJcIoIKyekZ5Rbus7WLoS2joda0uqvXirXnPiWA3agxCnt15Skw4VDvcgpdnc+5vZpIdYykCISBQLdRQhCbREhNXvgg1+WYm1Eg85PA2GyQwy5BeUprVxPqSgg0VZFi2LgllXAk4lg9Q5U14Yhaoqd2RMzGXSKL9by6SR7miPnJ3p2sBWgj94FIF+jVQlY+vxs0hizaSnXkkXJ0jpVKpOsIMwopLFlNtUaQeg8W22BcZYQ9DFsjAwRWH9ONmMiscBox57VoEkEx9qtOL22Xg886hJZ821MnmPilFRcDYlEjQfeOwZ6OSajnt5eI7aSaUEpWjyk2VEfQtt+ygvdGeb54aIHTOuM6gE6rstoI/ewMon78DajwdynhlJqt32OgMR100lh90TBnBsoq4KMHjdCtSSA2m+ls0x5D6Q2pDrJ4PeiJ6t4aDs8gwcr0PZwvZ3YievZHoRiUvyJCv1c+r4jsf+0aiM6ahtPXEErXSt1LtCU66IsJHkIRLgVw17sh6thXUApGy/VAW7s0l1R1WbYAU8dYSV9ok8CR2FTqu1Os=
   
-  skip_cleanup: true # to upload artifacts created during the build
-  
   dry_run: true
-
-after_deploy:
-  - echo '===> deployment done!'
