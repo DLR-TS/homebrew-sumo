@@ -73,12 +73,11 @@ echo "generating and adding bintray descriptor file..."
 m4 -DVERSION_NAME=${NEW_VERSION} -DVERSION_RELEASED=${DATE_STRING} -DVERSION_TAG=$TAG ${BINTRAY_DESCRIPTOR_FILE}.m4 > ${BINTRAY_DESCRIPTOR_FILE}
 git add ${BINTRAY_DESCRIPTOR_FILE}
 git commit -m "update bintray descriptor file"
-# git push origin master
 
-# # tagging induces deployment to bintray (see .travis.yml)
-# echo "tagging git commit to induce deployment to bintray at Travis CI..."
-# git tag -a $TAG -m "formula for sumo version ${NEW_VERSION}"
-# git push origin $TAG
+# tagging induces deployment to bintray (see .travis.yml)
+echo "tagging git commit to induce deployment to bintray at Travis CI..."
+git tag -a $TAG
+# git push origin master --tags
 
 ### ADD bottle block to formula
 
