@@ -4,15 +4,8 @@ class Sumo < Formula
   head "https://github.com/eclipse/sumo.git"
 
   stable do
-    url "https://github.com/eclipse/sumo/archive/v1_3_1.tar.gz"
-    sha256 "a1c1f62792b8024fd3ba7a7c6b86cc6196922720c65ee50eed67ac7e2b79c6e0"
-  end
-
-  bottle do
-    root_url "https://dl.bintray.com/dlr-ts/bottles-sumo"
-    cellar :any
-    sha256 "e4cc7065ccc24c770044d0c5fbde4d7cb144f695fae62da76ac67f8303f51863" => :mojave
-    sha256 "65c2885a02e5034daf38addb2dd04c8cefcd5f645d8de1b6e83b73d15c4de424" => :high_sierra
+    url "https://github.com/eclipse/sumo/archive/v1_4_0.tar.gz"
+    sha256 "5e37cd3420601052eed5af33688803453841a1e59b0cac90b48db236f61d1354"
   end
 
   depends_on "cmake" => :build
