@@ -44,10 +44,8 @@ echo "formula class name: '$FORMULA_CLASS_NAME'"
 ARCHIVED_FORMULA_FILENAME="sumo@${OLD_VERSION}.rb"
  
 # archive old formula
-echo "copying formula to Formula/${ARCHIVED_FORMULA_FILENAME}..."
-cp Formula/sumo.rb Formula/${ARCHIVED_FORMULA_FILENAME}
-echo "updating class name of archived formula..."
-sed -i "s/class Sumo/class ${FORMULA_CLASS_NAME}/" Formula/${ARCHIVED_FORMULA_FILENAME}
+echo "copying formula to Formula/${ARCHIVED_FORMULA_FILENAME} and updating class name of archived formula..."
+sed "s/class Sumo/class ${FORMULA_CLASS_NAME}/" Formula/sumo.rb >> Formula/${ARCHIVED_FORMULA_FILENAME}
 echo "done archiving old formula!"
 
 echo "adding archived formula to git"
@@ -65,7 +63,8 @@ git commit -m "sumo: update alias"
 
 ### UPDATE version number in README.md
 echo "updating version number in README.md"
-sed -i "s/${OLD_VERSION}/${NEW_VERSION}/" ${README_FILE}
+sed "s/${OLD_VERSION}/${NEW_VERSION}/" ${README_FILE} >> ${README_FILE}.NEW
+mv ${README_FILE}.NEW ${README_FILE}
 git add ${README_FILE}
 git commit -m "update version number in README"
 
