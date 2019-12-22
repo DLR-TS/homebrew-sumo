@@ -30,6 +30,7 @@ before_deploy:
   - brew cask install -v xquartz
   - brew install --build-bottle -v sumo
   - brew bottle -v sumo
+  - for file in $(ls sumo*bottle.tar.gz); do mv "$file" "$(echo "$file" | sed s/--/-/)"; done
 
 deploy:
   on:
