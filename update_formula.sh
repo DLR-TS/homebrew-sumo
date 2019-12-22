@@ -76,7 +76,7 @@ git commit -m "update bintray descriptor file"
 
 # tagging induces deployment to bintray (see .travis.yml)
 echo "tagging git commit to induce deployment to bintray at Travis CI..."
-git tag -a $TAG
+git tag -a $TAG -m "formula for sumo $TAG"
 # git push origin master --tags
 
 ### ADD bottle block to formula
