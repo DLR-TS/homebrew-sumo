@@ -16,7 +16,7 @@
     },
 
     "files": [
-        {"includePattern": "sumo(.*).bottle.tar.gz", "uploadPattern": "$1"}
+        {"includePattern": "\./(sumo.*\.bottle\.tar\.gz)", "uploadPattern": "$1"}
     ],
 
     "publish": true
