@@ -16,7 +16,7 @@ For more information on Brew Taps, see https://docs.brew.sh/Taps.
 
 ## Usage
 
-By default, the above command lines install a bottled SUMO stable version (currently ```1.4.0```) with minimal requirements (```fox```, ```proj```, ```xerces-c```).
+By default, the above command lines install a bottled SUMO stable version (currently ```1.5.0```) with minimal requirements (```fox```, ```proj```, ```xerces-c```).
 Alternatively, ```brew``` can compile SUMO from source with the following command line options:
 
 
