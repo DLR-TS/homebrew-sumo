@@ -55,6 +55,8 @@ git commit -m "sumo: archive formula for version ${OLD_VERSION}"
 ### BUMP formula version (https://docs.brew.sh/Manpage#bump-formula-pr-options-formula)
 echo "bumping formula version..."
 brew bump-formula-pr -v --dry-run --write --url=${SUMO_SRC_URL} ${FORMULA_NAME}
+git cp /usr/local/Homebrew/Library/Taps/dlr-ts/homebrew-sumo/Formula/sumo.rb Formula/
+git commit -m "sumo: update formula to v${NEW_VERSION}"
 
 ### UPDATE alias link
 echo "updating Alias symlink..."
@@ -79,5 +81,5 @@ echo "tagging git commit to induce deployment to bintray at Travis CI..."
 git tag -a $TAG -m "formula for sumo $TAG"
 # git push origin master --tags
 
-### ADD bottle block to formula
+### UPDATE bottle block in formula
 
