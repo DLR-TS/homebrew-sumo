@@ -8,23 +8,16 @@ osx_image:
 
 compiler: clang
 
-env:
-  - SUMO_VERSION=release
-  - SUMO_VERSION=head
-
 before_install:
   - brew update
 
 script:
   - brew tap dlr-ts/sumo
-  - if [[ "$SUMO_VERSION" == "head" ]]; then brew install -v --HEAD sumo; fi
-  - if [[ "$SUMO_VERSION" == "release" ]]; then brew install -v sumo; fi
-  - brew test sumo
+  - if [ -z "$TRAVIS_TAG" ]; then brew install -v sumo && brew test sumo; fi
 
 ### Bintray deployment ###
 before_deploy:
   - echo '===> Commit was tagged with '$TRAVIS_TAG', starting bottle deployment...'
-  - brew uninstall sumo
   - brew untap dlr-ts/sumo
   - brew tap dlr-ts/sumo
   - brew cask install -v xquartz
@@ -34,7 +27,6 @@ before_deploy:
 
 deploy:
   on:
-    condition: $SUMO_VERSION = release
     tags: true
 
   provider: bintray
