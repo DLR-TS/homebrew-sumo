@@ -4,8 +4,8 @@ class Sumo < Formula
   head "https://github.com/eclipse/sumo.git"
 
   stable do
-    url "https://github.com/eclipse/sumo/archive/v1_5_0.tar.gz"
-    sha256 "be6ba0361b487a5e71c81e60b4c07a67826d5e170500c10c37374c1086ac2cb6"
+    url "https://github.com/eclipse/sumo/archive/v1_6_0.tar.gz"
+    sha256 "95d48b40a796e51db5dff91c316426262e6d6577347cc7a4e9a03c1b302a84ef"
   end
 
   bottle do
