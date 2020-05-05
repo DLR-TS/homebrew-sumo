@@ -8,13 +8,6 @@ class Sumo < Formula
     sha256 "95d48b40a796e51db5dff91c316426262e6d6577347cc7a4e9a03c1b302a84ef"
   end
 
-  bottle do
-    root_url "https://dl.bintray.com/dlr-ts/bottles-sumo"
-    cellar :any
-    sha256 "c3432beb8fb74b6d5939d750985623280bf9a4f70aa0aeaf7d5e299a9b293914" => :mojave
-    sha256 "1aa74d45cefb21e08f750c0f032ca122e85f9cfc0e03accb5d5bc7eba00b42df" => :high_sierra
-  end
-
   depends_on "cmake" => :build
   depends_on "fox"
   depends_on "proj"
