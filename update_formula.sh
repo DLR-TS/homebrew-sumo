@@ -55,7 +55,9 @@ git commit -m "sumo: archive formula for version ${OLD_VERSION}"
 ### BUMP formula version (https://docs.brew.sh/Manpage#bump-formula-pr-options-formula)
 echo "bumping formula version..."
 brew bump-formula-pr -v --dry-run --write --url=${SUMO_SRC_URL} ${FORMULA_NAME}
-cp /usr/local/Homebrew/Library/Taps/dlr-ts/homebrew-sumo/Formula/sumo.rb Formula/
+# remove bottle block
+# NOTE: dirty hack assumes lines 11-17
+sed '11,17d' /usr/local/Homebrew/Library/Taps/dlr-ts/homebrew-sumo/Formula/sumo.rb >> Formula/sumo.rb
 git add Formula/sumo.rb
 git commit -m "sumo: update formula to v${NEW_VERSION}"
 
