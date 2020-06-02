@@ -14,6 +14,18 @@ For more information on Brew Taps, see https://docs.brew.sh/Taps.
 
     brew upgrade sumo
 
+## Homebrew Cask for macOS app bundles (optional)
+
+If you would like to have a little more integration with macOS, you can also install the following app bundles (created with [Platypus](https://github.com/sveinbjornt/Platypus)) to the `/Applications` folder:
+
+ * `SUMO GUI.app` (sumo-gui)
+ * `Netedit.app` (netedit)
+ * `OSM Web Wizard.app` (osm-web-wizard)
+
+Install with:
+
+    brew cask install sumo-gui
+
 ## Usage
 
 By default, the above command lines install a bottled SUMO stable version (currently ```1.6.0```) with minimal requirements (```fox```, ```proj```, ```xerces-c```).
