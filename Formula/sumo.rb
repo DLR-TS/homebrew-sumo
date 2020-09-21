@@ -4,15 +4,8 @@ class Sumo < Formula
   head "https://github.com/eclipse/sumo.git"
 
   stable do
-    url "https://github.com/eclipse/sumo/archive/v1_6_0.tar.gz"
-    sha256 "95d48b40a796e51db5dff91c316426262e6d6577347cc7a4e9a03c1b302a84ef"
-  end
-
-  bottle do
-    root_url "https://dl.bintray.com/dlr-ts/bottles-sumo"
-    cellar :any
-    sha256 "d45573d8427bb01fe7b85dd1cab6bf313fbd4a2d2ed5f2bed73a4a7c85767206" => :mojave
-    sha256 "3f3371fddbe3116b72a19cf4a14a150cec641dcc990cca039516f2702298007d" => :high_sierra
+    url "https://github.com/eclipse/sumo/archive/v1_7_0.tar.gz"
+    sha256 "db0868318f2a602475a15ba8b83d30b686e6283b3ff753b9d112217529f2893b"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +25,6 @@ class Sumo < Formula
   cxxstdlib_check :skip
 
   def install
-    ENV["SUMO_HOME"] = prefix
     cmake_args = *std_cmake_args
 
     # bottling uses default formula options and we want minimal requirement bottles,
@@ -69,8 +61,6 @@ class Sumo < Formula
     # This small test verifies the functionality of SUMO.
     # Run with 'brew test sumo'.
     # Options passed to 'brew install' such as '--HEAD' also need to be provided to 'brew test'.
-
-    ENV["SUMO_HOME"] = prefix
 
     (testpath/"nodes.xml").write <<~EOS
       <nodes>
