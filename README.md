@@ -50,7 +50,7 @@ Install with:
 
 ## Troubleshooting
 
-If you encounter any problems, please first check your ```brew``` installation (alse see [Homebrew Troubleshooting](https://docs.brew.sh/Troubleshooting)):
+If you encounter any problems, please first check your ```brew``` installation (also see [Homebrew Troubleshooting](https://docs.brew.sh/Troubleshooting)):
 
     brew update
     brew update
