@@ -38,7 +38,7 @@ Alternatively, ```brew``` can compile SUMO from source with the following comman
 
 ## Homebrew Cask for macOS app bundles (optional)
 
-If you would like to have a little more integration with macOS, you can also install the following app bundles (created with [Platypus](https://github.com/sveinbjornt/Platypus)) to the `/Applications` folder:
+If you would like to have a little more integration with macOS, you can also install the following app bundles (created with macOS Automator) to the `/Applications` folder:
 
  * `SUMO GUI.app` (sumo-gui)
  * `Netedit.app` (netedit)
