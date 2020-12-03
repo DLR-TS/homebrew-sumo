@@ -10,9 +10,9 @@
     },
 
     "version": {
-        "name": "1.7.0",
-        "released": "2020-09-21",
-        "vcs_tag": "v1.7.0"
+        "name": "1.8.0",
+        "released": "2020-12-03",
+        "vcs_tag": "v1.8.0"
     },
 
     "files": [
