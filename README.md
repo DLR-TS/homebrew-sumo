@@ -5,6 +5,12 @@
 This tap allows you to install [SUMO](https://projects.eclipse.org/projects/technology.sumo) with [Homebrew](https://brew.sh/) on macOS.
 For more information on Brew Taps, see https://docs.brew.sh/Taps.
 
+## Requirements
+
+If you want to use `sumo-gui` and/or `netedit`, you need to install XQuartz as a requirement:
+
+    brew install --cask xquartz
+
 ## Install
 
     brew tap dlr-ts/sumo
