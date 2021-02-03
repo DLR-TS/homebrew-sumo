@@ -1,7 +1,6 @@
 class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "https://projects.eclipse.org/projects/technology.sumo"
-  revision 1
   head "https://github.com/eclipse/sumo.git"
 
   stable do
@@ -19,6 +18,13 @@ class Sumo < Formula
   depends_on "cmake" => :build
   depends_on "fox"
   depends_on "libx11"
+  depends_on "libxcursor"
+  depends_on "libxext"
+  depends_on "libxfixes"
+  depends_on "libxft"
+  depends_on "libxi"
+  depends_on "libxrandr"
+  depends_on "libxrender"
   depends_on "proj"
   depends_on "xerces-c"
   depends_on "ffmpeg" => :optional

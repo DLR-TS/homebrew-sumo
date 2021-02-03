@@ -17,8 +17,15 @@ class SumoAT131 < Formula
 
   depends_on "cmake" => :build
   depends_on "fox"
+  depends_on "libx11"
+  depends_on "libxcursor"
+  depends_on "libxext"
+  depends_on "libxfixes"
+  depends_on "libxft"
+  depends_on "libxi"
+  depends_on "libxrandr"
+  depends_on "libxrender"
   depends_on "proj"
-  depends_on :x11 # TODO: find convenient way to explicitly define cask dependecy ("xquartz")
   depends_on "xerces-c"
   depends_on "ffmpeg" => :optional
   depends_on "gdal" => :optional
