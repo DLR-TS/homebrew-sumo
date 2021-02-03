@@ -46,7 +46,7 @@ If you would like to have a little more integration with macOS, you can also ins
 
 Install with:
 
-    brew cask install sumo-gui
+    brew install --cask sumo-gui
 
 ## Troubleshooting
 
