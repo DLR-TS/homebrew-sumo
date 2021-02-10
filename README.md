@@ -65,4 +65,5 @@ If you encounter any problems, please first check your ```brew``` installation (
 Any persisting problems with the SUMO Brew Formula should be reported directly to the [eclipse/sumo issue tracker](https://github.com/eclipse/sumo/issues).
 
 Some common problems and their fixes have been documented here:
+
 https://sumo.dlr.de/docs/Installing.html#macos_troubleshooting
