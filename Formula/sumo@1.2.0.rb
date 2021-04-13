@@ -10,9 +10,8 @@ class SumoAT120 < Formula
 
   bottle do
     root_url "https://dl.bintray.com/dlr-ts/bottles-sumo"
-    cellar :any
-    sha256 "d57e4442e27ba55a2be14b10758b017a5c6a6401b7b07bb8d5a128baa2d35e2a" => :high_sierra
-    sha256 "df9e19c1eeaf83d60697701932f9912d474cef8307975732a867a65b0466e328" => :mojave
+    sha256 cellar: :any, high_sierra: "d57e4442e27ba55a2be14b10758b017a5c6a6401b7b07bb8d5a128baa2d35e2a"
+    sha256 cellar: :any, mojave:      "df9e19c1eeaf83d60697701932f9912d474cef8307975732a867a65b0466e328"
   end
 
   depends_on "cmake" => :build
@@ -58,18 +57,19 @@ class SumoAT120 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    In order to let X11 start automatically whenever a GUI-based SUMO application
-    (e.g., "sumo-gui") is called, you need to log out and in again.
-    Alternatively, start X11 manually by pressing cmd-space and entering "XQuartz".
+  def caveats
+    <<~EOS
+      In order to let X11 start automatically whenever a GUI-based SUMO application
+      (e.g., "sumo-gui") is called, you need to log out and in again.
+      Alternatively, start X11 manually by pressing cmd-space and entering "XQuartz".
 
-    Don't forget to set your SUMO_HOME environment variable:
-      export SUMO_HOME="#{prefix}/share/sumo"
+      Don't forget to set your SUMO_HOME environment variable:
+        export SUMO_HOME="#{prefix}/share/sumo"
 
-    Please report any problems with this formula directly to the eclipse/sumo issue tracker:
-    https://github.com/eclipse/sumo/issues
+      Please report any problems with this formula directly to the eclipse/sumo issue tracker:
+      https://github.com/eclipse/sumo/issues
 
-  EOS
+    EOS
   end
 
   test do # will create, run in and delete a temporary directory
@@ -92,7 +92,8 @@ class SumoAT120 < Formula
       </edges>
     EOS
 
-    system "#{bin}/netconvert", "-n", "#{testpath}/nodes.xml", "-e", "#{testpath}/edges.xml", "-o", "#{testpath}/net.xml"
+    system "#{bin}/netconvert", "-n", "#{testpath}/nodes.xml", "-e", "#{testpath}/edges.xml", "-o",
+"#{testpath}/net.xml"
 
     (testpath/"flows.xml").write <<~EOS
       <routes>

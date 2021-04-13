@@ -56,18 +56,19 @@ class SumoAT101 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    In order to let X11 start automatically whenever a GUI-based SUMO application
-    (e.g., "sumo-gui") is called, you need to log out and in again.
-    Alternatively, start X11 manually by pressing cmd-space and entering "XQuartz".
+  def caveats
+    <<~EOS
+      In order to let X11 start automatically whenever a GUI-based SUMO application
+      (e.g., "sumo-gui") is called, you need to log out and in again.
+      Alternatively, start X11 manually by pressing cmd-space and entering "XQuartz".
 
-    Don't forget to set your SUMO_HOME environment variable:
-      export SUMO_HOME="#{prefix}"
+      Don't forget to set your SUMO_HOME environment variable:
+        export SUMO_HOME="#{prefix}"
 
-    Please report any problems with this formula directly to the eclipse/sumo issue tracker:
-    https://github.com/eclipse/sumo/issues
+      Please report any problems with this formula directly to the eclipse/sumo issue tracker:
+      https://github.com/eclipse/sumo/issues
 
-  EOS
+    EOS
   end
 
   test do # will create, run in and delete a temporary directory
@@ -90,7 +91,8 @@ class SumoAT101 < Formula
       </edges>
     EOS
 
-    system "#{bin}/netconvert", "-n", "#{testpath}/nodes.xml", "-e", "#{testpath}/edges.xml", "-o", "#{testpath}/net.xml"
+    system "#{bin}/netconvert", "-n", "#{testpath}/nodes.xml", "-e", "#{testpath}/edges.xml", "-o",
+"#{testpath}/net.xml"
 
     (testpath/"flows.xml").write <<~EOS
       <routes>
