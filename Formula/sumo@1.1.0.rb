@@ -1,6 +1,7 @@
 class SumoAT110 < Formula
   desc "Simulation of Urban MObility"
   homepage "http://sumo.dlr.de"
+  head "https://github.com/eclipse/sumo.git"
 
   stable do
     url "https://github.com/eclipse/sumo/archive/v1_1_0.tar.gz"
@@ -42,7 +43,11 @@ class SumoAT110 < Formula
 
     # bottling uses default formula options and we want minimal requirement bottles,
     # therefore, by default, do not check for optional libs
-    if build.with?("ffmpeg") || build.with?("gdal") || build.with?("gl2ps") || build.with?("open-scene-graph") || build.with?("swig")
+    if build.with?("ffmpeg") ||
+       build.with?("gdal") ||
+       build.with?("gl2ps") ||
+       build.with?("open-scene-graph") ||
+       build.with?("swig")
       ohai "Enabling check for optional libraries..."
       cmake_args << "-DCHECK_OPTIONAL_LIBS=ON"
     else
