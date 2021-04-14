@@ -6,7 +6,6 @@
 
 FORMULA_NAME=dlr-ts/sumo/sumo
 README_FILE=README.md
-BINTRAY_DESCRIPTOR_FILE=bintray_descriptor.json
 
 # check for cmd line parameters
 if [ $# -ne 2 ]; then
@@ -73,16 +72,7 @@ mv ${README_FILE}.NEW ${README_FILE}
 git add ${README_FILE}
 git commit -m "update version number in README"
 
-### DEPLOY bottle (https://docs.brew.sh/Manpage#bottle-options-formula)
-echo "generating and adding bintray descriptor file..."
-m4 -DVERSION_NAME=${NEW_VERSION} -DVERSION_RELEASED=${DATE_STRING} -DVERSION_TAG=$TAG ${BINTRAY_DESCRIPTOR_FILE}.m4 > ${BINTRAY_DESCRIPTOR_FILE}
-git add ${BINTRAY_DESCRIPTOR_FILE}
-git commit -m "update bintray descriptor file"
-
-# tagging induces deployment to bintray (see .travis.yml)
-echo "tagging git commit to induce deployment to bintray at Travis CI..."
+# tag commit
+echo "tagging git commit..."
 git tag -a $TAG -m "formula for sumo $TAG"
 # git push origin master --tags
-
-### UPDATE bottle block in formula
-echo "\nTODO: push commits and update bottle block in formula after deployment!\n"
