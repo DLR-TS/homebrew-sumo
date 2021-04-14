@@ -1,6 +1,6 @@
 class Sumo < Formula
   desc "Simulation of Urban MObility"
-  homepage "https://projects.eclipse.org/projects/technology.sumo"
+  homepage "https://projects.eclipse.org/projects/automotive.sumo"
   head "https://github.com/eclipse/sumo.git"
 
   stable do
