@@ -4,7 +4,7 @@ cask 'sumo-gui' do
 
   url "https://sumo.dlr.de/daily/sumo-gui-macos-git.zip"
   name 'sumo-gui-macos'
-  homepage "https://projects.eclipse.org/projects/technology.sumo"
+  homepage "https://projects.eclipse.org/projects/automotive.sumo"
 
   app 'sumo-git/sumo-gui-macos/sumo-gui.app', target: 'SUMO GUI.app'
   app 'sumo-git/sumo-gui-macos/netedit.app', target: 'Netedit.app'
