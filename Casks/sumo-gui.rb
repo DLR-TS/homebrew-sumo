@@ -6,7 +6,7 @@ cask "sumo-gui" do
       verified: "sumo.dlr.de/daily/"
   name "sumo-gui-macos"
   desc "Simulation of Urban MObility GUI"
-  homepage "https://projects.eclipse.org/projects/automotive.sumo"
+  homepage "https://www.eclipse.org/sumo"
 
   app "sumo-git/sumo-gui-macos/sumo-gui.app", target: "SUMO GUI.app"
   app "sumo-git/sumo-gui-macos/netedit.app", target: "Netedit.app"
