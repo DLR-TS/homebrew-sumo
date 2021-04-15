@@ -1,4 +1,5 @@
-[![Build Test Status](https://travis-ci.org/dlr-ts/homebrew-sumo.svg?branch=master)](https://travis-ci.org/dlr-ts/homebrew-sumo)
+[![brew test-bot](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/tests.yml/badge.svg)](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/tests.yml)
+[![brew pr-pull](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/publish.yml/badge.svg)](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/publish.yml)
 
 # Homebrew Tap for SUMO
 
