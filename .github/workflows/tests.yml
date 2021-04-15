@@ -33,7 +33,7 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - run: brew test-bot --only-formulae
+      - run: brew test-bot --only-formulae $BRANCH
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
