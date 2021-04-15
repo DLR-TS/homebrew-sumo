@@ -33,8 +33,11 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - run: brew test-bot --only-formulae $BRANCH
+      - name: Test install and bottle up Formula
         if: github.event_name == 'pull_request'
+        env:
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: brew test-bot --only-formulae $BRANCH
 
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
