@@ -47,6 +47,9 @@ echo "copying formula to Formula/${ARCHIVED_FORMULA_FILENAME} and updating class
 sed "s/class Sumo/class ${FORMULA_CLASS_NAME}/" Formula/sumo.rb >> Formula/${ARCHIVED_FORMULA_FILENAME}
 echo "done archiving old formula!"
 
+echo "creating git branch"
+git checkout -b sumo
+
 echo "adding archived formula to git"
 git add Formula/${ARCHIVED_FORMULA_FILENAME}
 git commit -m "sumo: archive formula for version ${OLD_VERSION}"
@@ -75,4 +78,4 @@ git commit -m "update version number in README"
 # tag commit
 echo "tagging git commit..."
 git tag -a $TAG -m "formula for sumo $TAG"
-# git push origin master --tags
+# git push --set-upstream origin sumo --tags
