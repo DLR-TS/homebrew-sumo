@@ -6,7 +6,10 @@ on:
   pull_request:
 jobs:
   test-bot:
-    runs-on: macos-latest
+    strategy:
+      matrix:
+        os: [macos-10.15]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -30,8 +33,11 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - run: brew test-bot --only-formulae
+      - name: Test install and bottle up Formula
         if: github.event_name == 'pull_request'
+        env:
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: brew test-bot --only-formulae $BRANCH
 
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
