@@ -20,7 +20,6 @@ fi
 
 NEW_VERSION=$1
 SUMO_SRC_URL=$2
-TAG=v${NEW_VERSION}
 DATE_STRING=$(date +"%Y-%m-%d")
 NEW_MAJOR=$(echo "${NEW_VERSION}" | awk -F . '{ print $1 }')
 NEW_MINOR=$(echo "${NEW_VERSION}" | awk -F . '{ print $2 }')
@@ -77,7 +76,5 @@ mv ${README_FILE}.NEW ${README_FILE}
 git add ${README_FILE}
 git commit -m "update version number in README"
 
-# tag commit
-echo "tagging git commit..."
-git tag -a $TAG -m "formula for sumo $TAG"
-# git push --set-upstream origin sumo --tags
+echo "You now need to create a pull request from the new branch to trigger the workflows ..."
+# git push --set-upstream origin sumo
