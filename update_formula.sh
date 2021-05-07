@@ -24,6 +24,7 @@ TAG=v${NEW_VERSION}
 DATE_STRING=$(date +"%Y-%m-%d")
 NEW_MAJOR=$(echo "${NEW_VERSION}" | awk -F . '{ print $1 }')
 NEW_MINOR=$(echo "${NEW_VERSION}" | awk -F . '{ print $2 }')
+NEW_PATCH=$(echo "${NEW_VERSION}" | awk -F . '{ print $3 }')
 
 ### ARCHIVE formula for old version
 # make sure most current version of formula is installed
@@ -34,6 +35,7 @@ brew install sumo
 OLD_VERSION=$(brew ls sumo --versions | awk '{print $2}')
 OLD_MAJOR=$(echo "${OLD_VERSION}" | awk -F . '{ print $1 }')
 OLD_MINOR=$(echo "${OLD_VERSION}" | awk -F . '{ print $2 }')
+OLD_PATCH=$(echo "${OLD_VERSION}" | awk -F . '{ print $3 }')
 echo "old sumo version: '$OLD_VERSION'"
 
 # generate full string (including version number) for formula class name
@@ -65,7 +67,7 @@ git commit -m "sumo: update formula to v${NEW_VERSION}"
 
 ### UPDATE alias link
 echo "updating Alias symlink..."
-git mv Aliases/sumo\@${OLD_MAJOR}.${OLD_MINOR} Aliases/sumo\@${NEW_MAJOR}.${NEW_MINOR}
+git mv Aliases/sumo\@${OLD_MAJOR}.${OLD_MINOR}.${OLD_PATCH} Aliases/sumo\@${NEW_MAJOR}.${NEW_MINOR}.${NEW_PATCH}
 git commit -m "sumo: update alias"
 
 ### UPDATE version number in README.md
