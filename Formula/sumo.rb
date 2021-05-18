@@ -9,6 +9,11 @@ class Sumo < Formula
     sha256 "18a9645592dd5c4d7ea5b7471457b70c74cc99f521767867b805ed163f2a338a"
   end
 
+  bottle do
+    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.9.2"
+    sha256 cellar: :any, catalina: "e7c126f9896273e1a658ce27ec63fc282734170f601cd8e78199c67f332ad08a"
+  end
+
   depends_on "cmake" => :build
   depends_on "fox"
   depends_on "libx11"
