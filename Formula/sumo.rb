@@ -5,13 +5,8 @@ class Sumo < Formula
   head "https://github.com/eclipse/sumo.git"
 
   stable do
-    url "https://github.com/eclipse/sumo/archive/v1_9_1.tar.gz"
-    sha256 "0ee60fb2b77a17fe110b32cbdab50e5352b2027b91dbb49d44e3057bff03d003"
-  end
-
-  bottle do
-    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.9.1"
-    sha256 cellar: :any, catalina: "4917eb5ef3beffe08e5accb103dd8f6af3a7fca640bd1a055e3d87d4b0424737"
+    url "https://github.com/eclipse/sumo/archive/v1_9_2.tar.gz"
+    sha256 "18a9645592dd5c4d7ea5b7471457b70c74cc99f521767867b805ed163f2a338a"
   end
 
   depends_on "cmake" => :build
