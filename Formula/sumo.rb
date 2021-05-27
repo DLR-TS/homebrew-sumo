@@ -3,16 +3,14 @@ class Sumo < Formula
   homepage "https://www.eclipse.org/sumo"
   license "EPL-2.0"
   head "https://github.com/eclipse/sumo.git"
+  revision 1
 
   stable do
-    url "https://github.com/eclipse/sumo/archive/v1_9_2.tar.gz"
-    sha256 "18a9645592dd5c4d7ea5b7471457b70c74cc99f521767867b805ed163f2a338a"
+    url "https://sumo.dlr.de/releases/1.9.2/sumo-src-1.9.2.tar.gz"
+    sha256 "193a8ab14bb305d3967625d76cd291f5c55bb906817465f2a12c2e69f4b80813"
   end
 
-  bottle do
-    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.9.2"
-    sha256 cellar: :any, catalina: "e7c126f9896273e1a658ce27ec63fc282734170f601cd8e78199c67f332ad08a"
-  end
+  option "with-examples", "Install docs/examples folder"
 
   depends_on "cmake" => :build
   depends_on "fox"
@@ -31,6 +29,7 @@ class Sumo < Formula
   depends_on "gl2ps" => :optional
   depends_on "open-scene-graph" => :optional
   depends_on "swig" => :optional
+  depends_on "python" if build.head? && build.with?("examples")
 
   # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
   # (use 'brew deps --tree sumo' to see dependencies of higher levels)
@@ -57,6 +56,13 @@ class Sumo < Formula
       system "cmake", "../..", *cmake_args
       system "make"
       system "make", "install"
+      if build.head? && build.with?("examples")
+        system "make", "examples"
+      end
+    end
+
+    if build.with?("examples")
+      (pkgshare/"docs").install Dir["docs/examples"]
     end
   end
 
