@@ -23,12 +23,12 @@ class Sumo < Formula
   depends_on "libxrandr"
   depends_on "libxrender"
   depends_on "proj"
+  depends_on "python" if build.head? && build.with?("examples")
   depends_on "xerces-c"
   depends_on "ffmpeg" => :optional
   depends_on "gdal" => :optional
   depends_on "gl2ps" => :optional
   depends_on "open-scene-graph" => :optional
-  depends_on "python" if build.head? && build.with?("examples")
   depends_on "swig" => :optional
 
   # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
