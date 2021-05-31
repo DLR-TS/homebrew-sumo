@@ -1,0 +1,20 @@
+name: example tests
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: '0 0 * * *'
+jobs:
+  test-bot:
+    strategy:
+      matrix:
+        os: [macos-10.15]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - run: brew tap dlr-ts/sumo
+
+      - run: brew install --with-examples sumo
+
+      - run: python $(brew --prefix sumo)/share/sumo/docs/examples/runAll.py
