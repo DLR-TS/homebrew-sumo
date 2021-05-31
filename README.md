@@ -1,5 +1,6 @@
-[![brew test-bot](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/tests.yml/badge.svg)](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/tests.yml)
-[![brew pr-pull](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/publish.yml/badge.svg)](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/publish.yml)
+[![brew formula tests](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/tests.yml/badge.svg)](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/tests.yml)
+[![brew publish](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/publish.yml/badge.svg)](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/publish.yml)
+[![example tests](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/example_tests.yml/badge.svg)](https://github.com/DLR-TS/homebrew-sumo/actions/workflows/example_tests.yml)
 
 # Homebrew Tap for SUMO
 
