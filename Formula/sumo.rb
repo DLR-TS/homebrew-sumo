@@ -2,8 +2,8 @@ class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "https://www.eclipse.org/sumo"
   license "EPL-2.0"
-  head "https://github.com/eclipse/sumo.git"
   revision 1
+  head "https://github.com/eclipse/sumo.git"
 
   stable do
     url "https://sumo.dlr.de/releases/1.9.2/sumo-src-1.9.2.tar.gz"
@@ -28,8 +28,8 @@ class Sumo < Formula
   depends_on "gdal" => :optional
   depends_on "gl2ps" => :optional
   depends_on "open-scene-graph" => :optional
-  depends_on "swig" => :optional
   depends_on "python" if build.head? && build.with?("examples")
+  depends_on "swig" => :optional
 
   # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
   # (use 'brew deps --tree sumo' to see dependencies of higher levels)
@@ -56,14 +56,10 @@ class Sumo < Formula
       system "cmake", "../..", *cmake_args
       system "make"
       system "make", "install"
-      if build.head? && build.with?("examples")
-        system "make", "examples"
-      end
+      system "make", "examples" if build.head? && build.with?("examples")
     end
 
-    if build.with?("examples")
-      (pkgshare/"docs").install Dir["docs/examples"]
-    end
+    (pkgshare/"docs").install "docs/examples" if build.with?("examples")
   end
 
   def caveats
