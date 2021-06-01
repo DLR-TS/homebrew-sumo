@@ -32,7 +32,7 @@ Alternatively, ```brew``` can compile SUMO from source with the following comman
     
     ==> Options
     --with-examples
-        Install docs/examples folder
+        Install docs/examples and docs/tutorial folder
     --with-ffmpeg
         Build with ffmpeg support
     --with-gdal

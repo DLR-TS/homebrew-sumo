@@ -2,7 +2,7 @@ class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "https://www.eclipse.org/sumo"
   license "EPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/eclipse/sumo.git"
 
   stable do
@@ -10,12 +10,7 @@ class Sumo < Formula
     sha256 "193a8ab14bb305d3967625d76cd291f5c55bb906817465f2a12c2e69f4b80813"
   end
 
-  bottle do
-    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.9.2_1"
-    sha256 cellar: :any, catalina: "4257630bd2b02419fe74991e95045868de46cb2cda4d007762c56102beabe4d1"
-  end
-
-  option "with-examples", "Install docs/examples folder"
+  option "with-examples", "Install docs/examples and docs/tutorial folder"
 
   depends_on "cmake" => :build
   depends_on "fox"
@@ -64,7 +59,10 @@ class Sumo < Formula
       system "make", "examples" if build.head? && build.with?("examples")
     end
 
-    (pkgshare/"docs").install "docs/examples" if build.with?("examples")
+    if build.with?("examples")
+      (pkgshare/"docs").install "docs/examples"
+      (pkgshare/"docs").install "docs/tutorial"
+    end
   end
 
   def caveats
