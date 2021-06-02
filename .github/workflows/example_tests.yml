@@ -8,10 +8,19 @@ jobs:
     strategy:
       matrix:
         os: [macos-10.15]
+        python-version: [3.x]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip numpy
 
       - run: brew tap dlr-ts/sumo
 
