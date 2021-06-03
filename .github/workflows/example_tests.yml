@@ -24,6 +24,6 @@ jobs:
 
       - run: brew tap dlr-ts/sumo
 
-      - run: brew install --with-examples sumo
+      - run: brew install --with-examples --HEAD sumo
 
       - run: python $(brew --prefix sumo)/share/sumo/docs/examples/runAll.py
