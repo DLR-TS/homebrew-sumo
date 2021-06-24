@@ -4,7 +4,7 @@
 
 # Homebrew Tap for SUMO
 
-This tap allows you to install [SUMO](https://projects.eclipse.org/projects/technology.sumo) with [Homebrew](https://brew.sh/) on macOS.
+This tap allows you to install [SUMO](https://www.eclipse.org/sumo/) with [Homebrew](https://brew.sh/) on macOS.
 For more information on Brew Taps, see https://docs.brew.sh/Taps.
 
 ## Requirements
