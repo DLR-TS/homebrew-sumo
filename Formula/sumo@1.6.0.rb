@@ -8,12 +8,6 @@ class SumoAT160 < Formula
     sha256 "95d48b40a796e51db5dff91c316426262e6d6577347cc7a4e9a03c1b302a84ef"
   end
 
-  bottle do
-    root_url "https://dl.bintray.com/dlr-ts/bottles-sumo"
-    sha256 cellar: :any, mojave:      "d45573d8427bb01fe7b85dd1cab6bf313fbd4a2d2ed5f2bed73a4a7c85767206"
-    sha256 cellar: :any, high_sierra: "3f3371fddbe3116b72a19cf4a14a150cec641dcc990cca039516f2702298007d"
-  end
-
   depends_on "cmake" => :build
   depends_on "fox"
   depends_on "libx11"
