@@ -3,7 +3,7 @@ class Sumo < Formula
   homepage "https://www.eclipse.org/sumo"
   license "EPL-2.0"
   revision 2
-  head "https://github.com/eclipse/sumo.git"
+  head "https://github.com/eclipse/sumo.git", branch: "main"
 
   stable do
     url "https://sumo.dlr.de/releases/1.9.2/sumo-src-1.9.2.tar.gz"

@@ -1,7 +1,7 @@
 class SumoAT160 < Formula
   desc "Simulation of Urban MObility"
   homepage "https://projects.eclipse.org/projects/technology.sumo"
-  head "https://github.com/eclipse/sumo.git"
+  head "https://github.com/eclipse/sumo.git", branch: "main"
 
   stable do
     url "https://github.com/eclipse/sumo/archive/v1_6_0.tar.gz"

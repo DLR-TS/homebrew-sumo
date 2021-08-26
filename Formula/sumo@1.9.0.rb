@@ -2,7 +2,7 @@ class SumoAT190 < Formula
   desc "Simulation of Urban MObility"
   homepage "https://www.eclipse.org/sumo"
   license "EPL-2.0"
-  head "https://github.com/eclipse/sumo.git"
+  head "https://github.com/eclipse/sumo.git", branch: "main"
 
   stable do
     url "https://github.com/eclipse/sumo/archive/v1_9_0.tar.gz"
