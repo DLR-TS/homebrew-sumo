@@ -31,7 +31,8 @@ brew uninstall sumo
 brew install sumo
 
 # figure out version number
-OLD_VERSION=$(brew ls sumo --versions | awk '{print $2}')
+OLD_VERSION_WITH_REVISION=$(brew ls sumo --versions | awk '{print $2}')
+OLD_VERSION=$(echo "${OLD_VERSION_WITH_REVISION}" | awk -F _ '{print $1}')
 OLD_MAJOR=$(echo "${OLD_VERSION}" | awk -F . '{ print $1 }')
 OLD_MINOR=$(echo "${OLD_VERSION}" | awk -F . '{ print $2 }')
 OLD_PATCH=$(echo "${OLD_VERSION}" | awk -F . '{ print $3 }')
