@@ -9,7 +9,6 @@ class Sumo < Formula
     sha256 "163dd6f7ed718e2a30630be3d2ac2ddfc4abce24750ed7f4efce879a3ae9447e"
   end
 
-
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
   depends_on "cmake" => :build
