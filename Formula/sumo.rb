@@ -7,6 +7,11 @@ class Sumo < Formula
   stable do
     url "https://sumo.dlr.de/releases/1.12.0/sumo-src-1.12.0.tar.gz"
     sha256 "163dd6f7ed718e2a30630be3d2ac2ddfc4abce24750ed7f4efce879a3ae9447e"
+
+    if version == "1.12.0" # only for stable v1.12.0
+      # commit 0e3f12c0ab2d9fc41f8cabc9b2492274ec9aef86
+      patch :DATA # patch code with diff after '__END__'
+    end
   end
 
   option "with-examples", "Install docs/examples and docs/tutorial folder"
@@ -109,3 +114,38 @@ class Sumo < Formula
     system "#{bin}/sumo", "-n", "#{testpath}/net.xml", "-r", "#{testpath}/flows.xml"
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 48ad25cbee2..6600ab20099 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -414,6 +414,13 @@ if (MSVC)
+     if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+         set(CMAKE_INSTALL_PREFIX "sumo-${PACKAGE_VERSION}")
+     endif()
++    install(DIRECTORY bin/ DESTINATION bin
++            FILES_MATCHING
++            PATTERN "*.bat"
++            PATTERN "*.dll"
++            PATTERN "*d.dll" EXCLUDE
++            PATTERN "gtest*.dll" EXCLUDE
++            PATTERN "FOXDLLD-1.6.dll" EXCLUDE)
+ else ()
+     include(GNUInstallDirs)
+ endif ()
+@@ -426,13 +433,6 @@ if (SKBUILD)
+     set(EXCLUDE_LIBSUMO "libsumo")
+     set(EXCLUDE_LIBTRACI "libtraci")
+ endif ()
+-install(DIRECTORY bin/ DESTINATION bin
+-        FILES_MATCHING
+-        PATTERN "*.bat"
+-        PATTERN "*.dll"
+-        PATTERN "*d.dll" EXCLUDE
+-        PATTERN "gtest*.dll" EXCLUDE
+-        PATTERN "FOXDLLD-1.6.dll" EXCLUDE)
+ install(DIRECTORY data/ DESTINATION ${DATA_PATH}data)
+ install(DIRECTORY tools/ DESTINATION ${DATA_PATH}tools
+         USE_SOURCE_PERMISSIONS
+
