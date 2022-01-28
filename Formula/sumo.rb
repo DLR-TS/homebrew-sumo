@@ -14,6 +14,12 @@ class Sumo < Formula
     end
   end
 
+  bottle do
+    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.12.0"
+    sha256 cellar: :any, big_sur:  "a97d2f1957bb1feeba9d104cc2d3c69e8edd5a08ea0823ef4309a6d4f983f73c"
+    sha256 cellar: :any, catalina: "6888fb14466c8333a0eae3802cac554ea71714e8ba7f9d5195ce28083368805e"
+  end
+
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
   depends_on "cmake" => :build
