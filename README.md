@@ -44,7 +44,7 @@ Alternatively, ```brew``` can compile SUMO from source with the following comman
     --with-swig
         Build with swig support
     --HEAD
-        Install HEAD version
+        Install HEAD version (latest developer version of sumo)
 
 ## Homebrew Cask for macOS app bundles (optional)
 
