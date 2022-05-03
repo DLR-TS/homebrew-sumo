@@ -5,16 +5,10 @@ class Sumo < Formula
   head "https://github.com/eclipse/sumo.git", branch: "main"
 
   stable do
-    url "https://sumo.dlr.de/releases/1.12.0/sumo-src-1.12.0.tar.gz"
-    sha256 "163dd6f7ed718e2a30630be3d2ac2ddfc4abce24750ed7f4efce879a3ae9447e"
+    url "https://sumo.dlr.de/releases/1.13.0/sumo-src-1.13.0.tar.gz"
+    sha256 "71bfc0162a0bf77eeec962d7c851d87e6a148c5040cb1d0ba6715936363897af"
 
     if version == "1.12.0" # only for stable v1.12.0
-      # commit 0e3f12c0ab2d9fc41f8cabc9b2492274ec9aef86
-      patch :DATA # patch code with diff after '__END__'
-    end
-  end
-
-  bottle do
     root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.12.0"
     sha256 cellar: :any, big_sur:  "a97d2f1957bb1feeba9d104cc2d3c69e8edd5a08ea0823ef4309a6d4f983f73c"
     sha256 cellar: :any, catalina: "6888fb14466c8333a0eae3802cac554ea71714e8ba7f9d5195ce28083368805e"
