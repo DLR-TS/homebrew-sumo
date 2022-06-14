@@ -10,6 +10,12 @@ class Sumo < Formula
     sha256 "71bfc0162a0bf77eeec962d7c851d87e6a148c5040cb1d0ba6715936363897af"
   end
 
+  bottle do
+    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.13.0_1"
+    sha256 cellar: :any, big_sur:  "b2c2b43b71514131fc3c3b5f60ece2c36f8bbf3dccb7c298857f2ba5a100aa5a"
+    sha256 cellar: :any, catalina: "6a153cdbfafda67cf4a197d7c6b7dc59696aba3ddcbe2998dd18c4d041c176ad"
+  end
+
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
   depends_on "cmake" => :build
