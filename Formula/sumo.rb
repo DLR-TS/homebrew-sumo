@@ -3,6 +3,7 @@ class Sumo < Formula
   homepage "https://www.eclipse.org/sumo"
   license "EPL-2.0"
   head "https://github.com/eclipse/sumo.git", branch: "main"
+  revision 1
 
   stable do
     url "https://sumo.dlr.de/releases/1.13.0/sumo-src-1.13.0.tar.gz"
@@ -19,6 +20,7 @@ class Sumo < Formula
 
   depends_on "cmake" => :build
   depends_on "fox"
+  depends_on "libice"
   depends_on "libx11"
   depends_on "libxcursor"
   depends_on "libxext"
@@ -27,8 +29,10 @@ class Sumo < Formula
   depends_on "libxi"
   depends_on "libxrandr"
   depends_on "libxrender"
+  depends_on "maven" if build.with?("swig")
+  depends_on "openjdk" if build.with?("swig")
   depends_on "proj"
-  depends_on "python" if build.head? && build.with?("examples")
+  depends_on "python" if build.with?("swig") || (build.head? && build.with?("examples"))
   depends_on "xerces-c"
   depends_on "ffmpeg" => :optional
   depends_on "gdal" => :optional
@@ -42,19 +46,30 @@ class Sumo < Formula
   cxxstdlib_check :skip
 
   def install
-    cmake_args = *std_cmake_args
+    # cf. https://rubydoc.brew.sh/Formula.html#std_cmake_args-instance_method
+    cmake_args = *std_cmake_args(find_framework: "LAST")
 
     # bottling uses default formula options and we want minimal requirement bottles,
     # therefore, by default, do not check for optional libs
     if build.with?("ffmpeg") ||
        build.with?("gdal") ||
        build.with?("gl2ps") ||
-       build.with?("open-scene-graph") ||
-       build.with?("swig")
+       build.with?("open-scene-graph")
       ohai "Enabling check for optional libraries..."
       cmake_args << "-DCHECK_OPTIONAL_LIBS=ON"
     else
       cmake_args << "-DCHECK_OPTIONAL_LIBS=OFF"
+    end
+
+    # If found, SWIG is enabled by default by sumo cmake config step
+    # but Java/Python library paths found by cmake might still be broken,
+    # so we disable SWIG by default here.
+    if build.without?("swig")
+      cmake_args << "-DSWIG_EXECUTABLE=\"\""
+    else
+      # XXX: work in progress
+      # cmake_args << "-DJAVA_HOME=#{Formula["openjdk"].opt_prefix}/libexec/openjdk.jdk/Contents/Home"
+      # cmake_args << "-DPython_ROOT_DIR=#{Formula["python"].opt_prefix}"
     end
 
     mkdir "build/cmake-build" do # creates and changes to dir in block
