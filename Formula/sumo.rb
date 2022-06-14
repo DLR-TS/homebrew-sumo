@@ -56,13 +56,10 @@ class Sumo < Formula
     # If found, SWIG is enabled by default by sumo cmake config step
     # but Java/Python library paths found by cmake might still be broken,
     # so we disable SWIG by default here.
-    if build.without?("swig")
-      cmake_args << "-DSWIG_EXECUTABLE=\"\""
-    end
-    # XXX: work in progress
-    # else
-      # cmake_args << "-DJAVA_HOME=#{Formula["openjdk"].opt_prefix}/libexec/openjdk.jdk/Contents/Home"
-      # cmake_args << "-DPython_ROOT_DIR=#{Formula["python"].opt_prefix}"
+    cmake_args << "-DSWIG_EXECUTABLE=\"\"" if build.without?("swig")
+    # XXX: pointers for getting '--with-swig' to work:
+    # cmake_args << "-DJAVA_HOME=#{Formula["openjdk"].opt_prefix}/libexec/openjdk.jdk/Contents/Home"
+    # cmake_args << "-DPython_ROOT_DIR=#{Formula["python"].opt_prefix}"
 
     mkdir "build/cmake-build" do # creates and changes to dir in block
       system "cmake", "../..", *cmake_args
