@@ -24,15 +24,13 @@ class Sumo < Formula
   depends_on "libxrandr"
   depends_on "libxrender"
   depends_on "proj"
-  depends_on "python" if build.with?("swig") || (build.head? && build.with?("examples"))
+  depends_on "python" if build.head? && build.with?("examples")
   depends_on "xerces-c"
   depends_on "ffmpeg" => :optional
   depends_on "gdal" => :optional
   depends_on "gl2ps" => :optional
   depends_on "open-scene-graph" => :optional
   depends_on "swig" => :optional
-  depends_on "openjdk" if build.with?("swig")
-  depends_on "maven" if build.with?("swig")
 
   # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
   # (use 'brew deps --tree sumo' to see dependencies of higher levels)
@@ -60,11 +58,11 @@ class Sumo < Formula
     # so we disable SWIG by default here.
     if build.without?("swig")
       cmake_args << "-DSWIG_EXECUTABLE=\"\""
+    end
     # XXX: work in progress
-    # else      
+    # else
       # cmake_args << "-DJAVA_HOME=#{Formula["openjdk"].opt_prefix}/libexec/openjdk.jdk/Contents/Home"
       # cmake_args << "-DPython_ROOT_DIR=#{Formula["python"].opt_prefix}"
-    end
 
     mkdir "build/cmake-build" do # creates and changes to dir in block
       system "cmake", "../..", *cmake_args
