@@ -2,8 +2,8 @@ class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "https://www.eclipse.org/sumo"
   license "EPL-2.0"
-  head "https://github.com/eclipse/sumo.git", branch: "main"
   revision 1
+  head "https://github.com/eclipse/sumo.git", branch: "main"
 
   stable do
     url "https://sumo.dlr.de/releases/1.13.0/sumo-src-1.13.0.tar.gz"
@@ -23,8 +23,6 @@ class Sumo < Formula
   depends_on "libxi"
   depends_on "libxrandr"
   depends_on "libxrender"
-  depends_on "maven" if build.with?("swig")
-  depends_on "openjdk" if build.with?("swig")
   depends_on "proj"
   depends_on "python" if build.with?("swig") || (build.head? && build.with?("examples"))
   depends_on "xerces-c"
@@ -33,6 +31,8 @@ class Sumo < Formula
   depends_on "gl2ps" => :optional
   depends_on "open-scene-graph" => :optional
   depends_on "swig" => :optional
+  depends_on "openjdk" if build.with?("swig")
+  depends_on "maven" if build.with?("swig")
 
   # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
   # (use 'brew deps --tree sumo' to see dependencies of higher levels)
@@ -60,8 +60,8 @@ class Sumo < Formula
     # so we disable SWIG by default here.
     if build.without?("swig")
       cmake_args << "-DSWIG_EXECUTABLE=\"\""
-    else
-      # XXX: work in progress
+    # XXX: work in progress
+    # else      
       # cmake_args << "-DJAVA_HOME=#{Formula["openjdk"].opt_prefix}/libexec/openjdk.jdk/Contents/Home"
       # cmake_args << "-DPython_ROOT_DIR=#{Formula["python"].opt_prefix}"
     end
