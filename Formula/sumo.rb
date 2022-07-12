@@ -2,21 +2,14 @@ class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "https://www.eclipse.org/sumo"
   license "EPL-2.0"
-  revision 1
   head "https://github.com/eclipse/sumo.git", branch: "main"
 
   stable do
-    url "https://sumo.dlr.de/releases/1.13.0/sumo-src-1.13.0.tar.gz"
-    sha256 "71bfc0162a0bf77eeec962d7c851d87e6a148c5040cb1d0ba6715936363897af"
+    url "https://sumo.dlr.de/releases/1.14.0/sumo-src-1.14.0.tar.gz"
+    sha256 "0e7643c89c819683d5dd3e895f4312df1f37da278b782c16eb9cec0cc280f678"
   end
 
   bottle do
-    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.13.0_1"
-    sha256 cellar: :any, big_sur:  "b2c2b43b71514131fc3c3b5f60ece2c36f8bbf3dccb7c298857f2ba5a100aa5a"
-    sha256 cellar: :any, catalina: "6a153cdbfafda67cf4a197d7c6b7dc59696aba3ddcbe2998dd18c4d041c176ad"
-  end
-
-  option "with-examples", "Install docs/examples and docs/tutorial folder"
 
   depends_on "cmake" => :build
   depends_on "fox"
