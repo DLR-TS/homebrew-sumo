@@ -7,6 +7,8 @@
 This tap allows you to install [SUMO](https://www.eclipse.org/sumo/) with [Homebrew](https://brew.sh/) on macOS.
 For more information on Brew Taps, see https://docs.brew.sh/Taps.
 
+For a step-by-step Formula update Guide, refer to: https://sumo.dlr.de/docs/Developer/HowToUpdateHomebrewFormula.html
+
 ## Requirements
 
 If you want to use `sumo-gui` and/or `netedit`, you need to install XQuartz as a requirement:
