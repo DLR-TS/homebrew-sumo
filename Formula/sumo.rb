@@ -5,14 +5,8 @@ class Sumo < Formula
   head "https://github.com/eclipse/sumo.git", branch: "main"
 
   stable do
-    url "https://sumo.dlr.de/releases/1.15.0/sumo-src-1.15.0.tar.gz"
-    sha256 "b4c2c18f5f6df90bec7c3f7aa360bc5a682221ea6a3fa02b7e1c8dd9976733bd"
-  end
-
-  bottle do
-    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.15.0"
-    sha256 cellar: :any, big_sur:  "ad4e1d1c5b877b90c21a299635c215b7df9a92d530240966195fe32d38040d49"
-    sha256 cellar: :any, catalina: "e281b7e1104fe03ab94cec6a7853bab1c43548e0c48b9bf9e0d97e743ab1a5c8"
+    url "https://sumo.dlr.de/releases/1.16.0/sumo-src-1.16.0.tar.gz"
+    sha256 "33694b554a8c661ec407d04cc7c6534c473ccb2fbe7bf2ea97e1faddc70654fa"
   end
 
   option "with-examples", "Install docs/examples and docs/tutorial folder"
