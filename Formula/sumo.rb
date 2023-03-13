@@ -11,6 +11,7 @@ class Sumo < Formula
 
   bottle do
     root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.16.0"
+    sha256 cellar: :any, arm64_monterey: "6345b5285ab1e1176f1d343721611cb728172a2dfe3cb1df92bc14ac37c82fe8"
     sha256 cellar: :any, big_sur: "fd2afa754c03bd4336a07bdca65e5c84b33832ded88b0c6d7120e7e3dcae8b73"
   end
 
