@@ -9,6 +9,12 @@ class Sumo < Formula
     sha256 "46b9c0f12416ab5a757a6e6d06c6d14432937b47d87a7abafafaab363fdfbc83"
   end
 
+  bottle do
+    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.18.0"
+    sha256 cellar: :any, monterey: "856488341600184388e8ef36889e3af829d756877f1efb9b04f4b6cc9e2e5d54"
+    sha256 cellar: :any, big_sur:  "48067642e2d03f9414ca66eaeb4205787df5003266d51527f3a76cdc0a8b31c2"
+  end
+
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
   depends_on "cmake" => :build
