@@ -68,7 +68,7 @@ If you encounter any problems, please first check your ```brew``` installation (
     brew update
     brew doctor
 
-Any persisting problems with the SUMO Brew Formula should be reported directly to the [eclipse/sumo issue tracker](https://github.com/eclipse/sumo/issues).
+Any persisting problems with the SUMO Brew Formula should be reported directly to the [eclipse/sumo issue tracker](https://github.com/eclipse-sumo/sumo/issues).
 
 Some common problems and their fixes have been documented here:
 
