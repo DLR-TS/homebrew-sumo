@@ -1,20 +1,12 @@
 class Sumo < Formula
   desc "Simulation of Urban MObility"
-  homepage "https://www.eclipse.org/sumo"
+  homepage "https://www.eclipse.dev/sumo"
   license "EPL-2.0"
-  head "https://github.com/eclipse/sumo.git", branch: "main"
+  head "https://github.com/eclipse-sumo/sumo.git", branch: "main"
 
   stable do
-    url "https://sumo.dlr.de/releases/1.18.0/sumo-src-1.18.0.tar.gz"
-    sha256 "46b9c0f12416ab5a757a6e6d06c6d14432937b47d87a7abafafaab363fdfbc83"
-  end
-
-  bottle do
-    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.18.0"
-    sha256 cellar: :any, arm64_ventura:  "bbbf60a04f47fac70d377644d6a554c7fcf712c98b6049f506293c2528760900"
-    sha256 cellar: :any, arm64_monterey: "9626c1438e07f63ec6afbc475761e0de6ecdc42144ca00ee7d9ce7487f4e7d8b"
-    sha256 cellar: :any, monterey:       "856488341600184388e8ef36889e3af829d756877f1efb9b04f4b6cc9e2e5d54"
-    sha256 cellar: :any, big_sur:        "48067642e2d03f9414ca66eaeb4205787df5003266d51527f3a76cdc0a8b31c2"
+    url "https://sumo.dlr.de/releases/1.19.0/sumo-src-1.19.0.tar.gz"
+    sha256 "7643b1f8a3d7144f181542c9c7b8c72f3e8e45ba9c627912665083db0fe106cd"
   end
 
   option "with-examples", "Install docs/examples and docs/tutorial folder"
@@ -90,8 +82,8 @@ class Sumo < Formula
       Don't forget to set your SUMO_HOME environment variable:
         export SUMO_HOME="#{prefix}/share/sumo"
 
-      Please report any problems with this formula directly to the eclipse/sumo issue tracker:
-      https://github.com/eclipse/sumo/issues
+      Please report any problems with this formula directly to the eclipse-sumo/sumo issue tracker:
+      https://github.com/eclipse-sumo/sumo/issues
 
     EOS
   end
