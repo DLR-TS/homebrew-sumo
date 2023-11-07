@@ -4,8 +4,8 @@ class SumoAT160 < Formula
   head "https://github.com/eclipse/sumo.git", branch: "main"
 
   stable do
-    url "https://github.com/eclipse/sumo/archive/v1_6_0.tar.gz"
-    sha256 "95d48b40a796e51db5dff91c316426262e6d6577347cc7a4e9a03c1b302a84ef"
+    url "https://sumo.dlr.de/releases/1.6.0/sumo-src-1.6.0.tar.gz"
+    sha256 "318fb3cc129f7578fe2b1b59c2aa86fd226ead6d087da4945015b14cc09de94e"
   end
 
   depends_on "cmake" => :build

@@ -5,8 +5,8 @@ class SumoAT1100 < Formula
   head "https://github.com/eclipse/sumo.git", branch: "main"
 
   stable do
-    url "https://github.com/eclipse/sumo/archive/v1_10_0.tar.gz"
-    sha256 "d2520ff9bb6fbf16d9c7342a8720f0ee1e417d7546826e034e268e4f073faf2c"
+    url "https://sumo.dlr.de/releases/1.10.0/sumo-src-1.10.0.tar.gz"
+    sha256 "4c6c1de915225e21bc5b2bda9a9d8d4aad6572f62bfeab90af96e840da234da9"
   end
 
   bottle do
