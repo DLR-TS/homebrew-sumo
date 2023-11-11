@@ -13,6 +13,7 @@ class Sumo < Formula
     root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.19.0"
     sha256 cellar: :any, arm64_sonoma:  "6e4d383eb4129a14d64c87abd594585f23e93a2992f09e6501854d9b7dee3a6b"
     sha256 cellar: :any, arm64_ventura: "f3ec3a9c845548b0ca7e5c3da6089ac1541b39df96120b83239a6e3eb947ec6d"
+    sha256 cellar: :any, ventura:       "0a99e836fe17386eab741544f6a0659d311879e917168d6593680178cd8b25a3"
     sha256 cellar: :any, monterey:      "69c36af294f7f54255f1231dc121bf1143953a106614c3eabb559ec71a66ba66"
   end
 
