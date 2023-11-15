@@ -7,7 +7,7 @@ jobs:
   test-bot:
     strategy:
       matrix:
-        os: [macos-12, macos-13]
+        os: [macos-12]
         python-version: [3.x]
     runs-on: ${{ matrix.os }}
     steps:
