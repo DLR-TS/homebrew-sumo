@@ -26,7 +26,7 @@ If you want to use `sumo-gui` and/or `netedit`, you need to install XQuartz as a
 
 ## Usage
 
-By default, the above command lines install a bottled SUMO stable version (currently ```1.19.0```) with minimal requirements (```fox```, ```proj```, ```xerces-c```).
+By default, the above command lines install a bottled SUMO stable version (currently ```1.20.0```) with minimal requirements (```fox```, ```proj```, ```xerces-c```).
 Alternatively, ```brew``` can compile SUMO from source with the following command line options:
 
 
