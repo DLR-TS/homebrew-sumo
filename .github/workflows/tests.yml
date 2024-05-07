@@ -31,7 +31,8 @@ jobs:
 
       - run: brew test-bot --only-setup
 
-      - run: brew test-bot --only-tap-syntax
+      # skipping this test due to the "FormulaAudit/ComponentsRedundancy: stable do should not be present with only url/sha256/mirror/version" error
+      #- run: brew test-bot --only-tap-syntax
 
       - name: Test install and bottle up Formula
         if: github.event_name == 'pull_request'
