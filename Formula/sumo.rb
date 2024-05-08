@@ -1,13 +1,10 @@
 class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "https://www.eclipse.dev/sumo"
+  url "https://sumo.dlr.de/releases/1.20.0/sumo-src-1.20.0.tar.gz"
+  sha256 "34320ba1695db74c769d6b4931cb6bc6ec5b26c37e556451ab29d3963d6af8ec"
   license "EPL-2.0"
   head "https://github.com/eclipse-sumo/sumo.git", branch: "main"
-
-  stable do
-    url "https://sumo.dlr.de/releases/1.20.0/sumo-src-1.20.0.tar.gz"
-    sha256 "34320ba1695db74c769d6b4931cb6bc6ec5b26c37e556451ab29d3963d6af8ec"
-  end
 
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 

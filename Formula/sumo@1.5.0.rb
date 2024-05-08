@@ -1,12 +1,9 @@
 class SumoAT150 < Formula
   desc "Simulation of Urban MObility"
   homepage "https://projects.eclipse.org/projects/technology.sumo"
+  url "https://sumo.dlr.de/releases/1.5.0/sumo-src-1.5.0.tar.gz"
+  sha256 "dcf5339fdda0659fa44fcfd69fe3f4e03009aa9a59849624f2a3cfe72eda9f8e"
   head "https://github.com/eclipse/sumo.git", branch: "main"
-
-  stable do
-    url "https://sumo.dlr.de/releases/1.5.0/sumo-src-1.5.0.tar.gz"
-    sha256 "dcf5339fdda0659fa44fcfd69fe3f4e03009aa9a59849624f2a3cfe72eda9f8e"
-  end
 
   depends_on "cmake" => :build
   depends_on "fox"
