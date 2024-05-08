@@ -6,6 +6,11 @@ class Sumo < Formula
   license "EPL-2.0"
   head "https://github.com/eclipse-sumo/sumo.git", branch: "main"
 
+  bottle do
+    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.20.0"
+    sha256 cellar: :any, monterey: "dd3c1d156ed3a48fbe61227a314b213ae4c6c903cf03edb4f5e344b3689a09c3"
+  end
+
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
   depends_on "cmake" => :build
