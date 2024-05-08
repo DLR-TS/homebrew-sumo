@@ -1,14 +1,11 @@
 class SumoAT1130 < Formula
   desc "Simulation of Urban MObility"
   homepage "https://www.eclipse.org/sumo"
+  url "https://sumo.dlr.de/releases/1.13.0/sumo-src-1.13.0.tar.gz"
+  sha256 "71bfc0162a0bf77eeec962d7c851d87e6a148c5040cb1d0ba6715936363897af"
   license "EPL-2.0"
   revision 1
   head "https://github.com/eclipse/sumo.git", branch: "main"
-
-  stable do
-    url "https://sumo.dlr.de/releases/1.13.0/sumo-src-1.13.0.tar.gz"
-    sha256 "71bfc0162a0bf77eeec962d7c851d87e6a148c5040cb1d0ba6715936363897af"
-  end
 
   bottle do
     root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.13.0_1"
