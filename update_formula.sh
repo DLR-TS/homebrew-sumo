@@ -13,7 +13,7 @@ if [ $# -ne 2 ]; then
     echo "Usage: $0 <NEW_VERSION> <SUMO_SRC_URL>"
     echo "Examples:"
     echo "    NEW_VERSION: 1.3.1"
-    echo "    SUMO_SRC_URL: https://github.com/eclipse/sumo/archive/v1_3_1.tar.gz"
+    echo "    SUMO_SRC_URL: https://github.com/eclipse-sumo/sumo/archive/v1_3_1.tar.gz"
     echo ""
     exit 1
 fi
