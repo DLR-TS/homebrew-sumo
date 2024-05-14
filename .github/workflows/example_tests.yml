@@ -1,21 +1,28 @@
 name: example tests
+
 on:
+  push:
+  pull_request:
+  workflow_dispatch:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron: '0 0 * * *'
+
 jobs:
-  test-bot:
+  example-tests:
     strategy:
+      fail-fast: false
       matrix:
-        os: [macos-12]
+        os: [macos-12, macos-13, macos-14]
         python-version: [3.x]
     runs-on: ${{ matrix.os }}
+
     steps:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
