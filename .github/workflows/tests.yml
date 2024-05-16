@@ -5,6 +5,7 @@ on:
       - main
   pull_request:
   workflow_dispatch:
+
 jobs:
   test-bot:
     strategy:
@@ -15,6 +16,10 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Update Homebrew
+        if: matrix.os == 'macos-11'
+        run: brew upgrade
 
       - name: Cache Homebrew Bundler RubyGems
         id: cache
@@ -41,11 +46,10 @@ jobs:
         run: brew test-bot --only-formulae $BRANCH
 
       - name: Test install and bottle up main Formula
-        if: github.event_name == 'workflow_dispatch'
-        run: brew test-bot --only-formulae main
+        if: github.event_name != 'pull_request'
+        run: brew test-bot --only-formulae sumo
 
       - name: Upload bottles as artifact
-        if: always() && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch')
         uses: actions/upload-artifact@main
         with:
           name: bottles-${{ matrix.os }}
