@@ -17,9 +17,7 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Update Homebrew
-        if: matrix.os == 'macos-11'
-        run: brew upgrade certifi
+      # Don't do a "brew upgrade" here even if homebrew complains. It is very slow and will likely fail.
 
       - name: Cache Homebrew Bundler RubyGems
         id: cache
