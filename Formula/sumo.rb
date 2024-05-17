@@ -14,7 +14,16 @@ class Sumo < Formula
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
   depends_on "cmake" => :build
+  depends_on "xerces-c"
+  depends_on "proj"
   depends_on "fox"
+  depends_on "python" if build.head? && build.with?("examples")
+  depends_on "ffmpeg" => :optional
+  depends_on "gdal" => :optional
+  depends_on "gl2ps" => :optional
+  depends_on "open-scene-graph" => :optional
+  depends_on "swig" => :optional
+  # indirect dependencies
   depends_on "libice"
   depends_on "libx11"
   depends_on "libxcursor"
@@ -24,14 +33,14 @@ class Sumo < Formula
   depends_on "libxi"
   depends_on "libxrandr"
   depends_on "libxrender"
-  depends_on "proj"
-  depends_on "python" if build.head? && build.with?("examples")
-  depends_on "xerces-c"
-  depends_on "ffmpeg" => :optional
-  depends_on "gdal" => :optional
-  depends_on "gl2ps" => :optional
-  depends_on "open-scene-graph" => :optional
-  depends_on "swig" => :optional
+  depends_on "fontconfig"
+  depends_on "freetype"
+  depends_on "gettext"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "mesa"
+  depends_on "mesa-glu"
 
   # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
   # (use 'brew deps --tree sumo' to see dependencies of higher levels)

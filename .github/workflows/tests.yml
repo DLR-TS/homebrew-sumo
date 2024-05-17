@@ -31,6 +31,9 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
 
+      # query whether all dependencies are bottled
+      - run: brew unbottled sumo
+
       - run: brew test-bot --only-cleanup-before
 
       - run: brew test-bot --only-setup
@@ -45,3 +48,9 @@ jobs:
         with:
           name: bottles-${{ matrix.os }}
           path: '*.bottle.*'
+
+      - name: Upload logs as artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: logs-${{ matrix.os }}
+          path: /Users/runner/Library/Logs/Homebrew/*/*
