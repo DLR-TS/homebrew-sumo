@@ -14,9 +14,9 @@ class Sumo < Formula
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
   depends_on "cmake" => :build
+  depends_on "fontconfig"
   depends_on "fox"
   # indirect dependencies due to fox
-  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "gettext"
   depends_on "jpeg-turbo"
