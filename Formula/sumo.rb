@@ -6,10 +6,10 @@ class Sumo < Formula
   license "EPL-2.0"
   head "https://github.com/eclipse-sumo/sumo.git", branch: "main"
 
-  #stable do
-  #  url "https://sumo.dlr.de/releases/1.21.0/sumo-src-1.21.0.tar.gz"
-  #  sha256 "1a246c30159abd4b5a878c0ce4eba3779bc6fce95f9c815c5f45567ceaa4ea53"
-  #end
+  # stable do
+  #   url "https://sumo.dlr.de/releases/1.21.0/sumo-src-1.21.0.tar.gz"
+  #   sha256 "1a246c30159abd4b5a878c0ce4eba3779bc6fce95f9c815c5f45567ceaa4ea53"
+  # end
 
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
