@@ -1,15 +1,18 @@
-class Sumo < Formula
+class SumoAT1200 < Formula
   desc "Simulation of Urban MObility"
   homepage "https://www.eclipse.dev/sumo"
-  url "https://sumo.dlr.de/releases/1.21.0/sumo-src-1.21.0.tar.gz"
-  sha256 "1a246c30159abd4b5a878c0ce4eba3779bc6fce95f9c815c5f45567ceaa4ea53"
+  url "https://sumo.dlr.de/releases/1.20.0/sumo-src-1.20.0.tar.gz"
+  sha256 "34320ba1695db74c769d6b4931cb6bc6ec5b26c37e556451ab29d3963d6af8ec"
   license "EPL-2.0"
   head "https://github.com/eclipse-sumo/sumo.git", branch: "main"
 
-  # stable do
-  #   url "https://sumo.dlr.de/releases/1.21.0/sumo-src-1.21.0.tar.gz"
-  #   sha256 "1a246c30159abd4b5a878c0ce4eba3779bc6fce95f9c815c5f45567ceaa4ea53"
-  # end
+  bottle do
+    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.20.0"
+    sha256 cellar: :any, arm64_sonoma:  "de437553bbfff2c123b1e2c90f2bc0e35693cb34a1f371887891cd837577a279"
+    sha256 cellar: :any, arm64_ventura: "0416595756b2ce18e84c6c760257982210ffb3df07c9c43f60ade8a26d34578d"
+    sha256 cellar: :any, ventura:       "711ff64f1d59c52b669a340cc3924097cdc1bbbc0000042b28e13156051d5f21"
+    sha256 cellar: :any, monterey:      "dd3c1d156ed3a48fbe61227a314b213ae4c6c903cf03edb4f5e344b3689a09c3"
+  end
 
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
