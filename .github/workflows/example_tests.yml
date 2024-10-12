@@ -40,4 +40,4 @@ jobs:
         if: matrix.sumo_version == 'head'
         run: brew install --with-examples --HEAD sumo
 
-      - run: python $(brew --prefix sumo)/share/sumo/docs/examples/runAll.py
+      - run: python "$(brew --prefix sumo)/share/sumo/docs/examples/runAll.py"
