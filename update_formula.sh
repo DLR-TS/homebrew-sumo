@@ -8,14 +8,15 @@ FORMULA_NAME=dlr-ts/sumo/sumo
 README_FILE=README.md
 
 # check for cmd line parameters
-if [[ $# -ne 2 ]]; then
-    echo ""
-    echo "Usage: $0 <NEW_VERSION> <SUMO_SRC_URL>"
-    echo "Examples:"
-    echo "    NEW_VERSION: 1.3.1"
-    echo "    SUMO_SRC_URL: https://github.com/eclipse-sumo/sumo/archive/v1_3_1.tar.gz"
-    echo ""
-    exit 1
+if [[ $# -ne 2 ]]
+then
+  echo ""
+  echo "Usage: $0 <NEW_VERSION> <SUMO_SRC_URL>"
+  echo "Examples:"
+  echo "    NEW_VERSION: 1.3.1"
+  echo "    SUMO_SRC_URL: https://github.com/eclipse-sumo/sumo/archive/v1_3_1.tar.gz"
+  echo ""
+  exit 1
 fi
 
 NEW_VERSION="$1"
@@ -45,7 +46,7 @@ ARCHIVED_FORMULA_FILENAME="sumo@${OLD_VERSION}.rb"
 
 # archive old formula
 echo "copying formula to Formula/${ARCHIVED_FORMULA_FILENAME} and updating class name of archived formula..."
-sed "s/class Sumo/class ${FORMULA_CLASS_NAME}/" Formula/sumo.rb >> Formula/"${ARCHIVED_FORMULA_FILENAME}"
+sed "s/class Sumo/class ${FORMULA_CLASS_NAME}/" Formula/sumo.rb >>Formula/"${ARCHIVED_FORMULA_FILENAME}"
 echo "done archiving old formula!"
 
 echo "creating git branch"
@@ -60,7 +61,7 @@ echo "bumping formula version..."
 brew bump-formula-pr -v --write-only --no-audit --url="${SUMO_SRC_URL}" "${FORMULA_NAME}"
 # remove bottle block
 # NOTE: dirty hack assumes lines 12-17 (including extra blank line)
-sed '12,17d' /usr/local/Homebrew/Library/Taps/dlr-ts/homebrew-sumo/Formula/sumo.rb > Formula/sumo.rb
+sed '12,17d' /usr/local/Homebrew/Library/Taps/dlr-ts/homebrew-sumo/Formula/sumo.rb >Formula/sumo.rb
 git add Formula/sumo.rb
 git commit -m "sumo: update formula to v${NEW_VERSION}"
 
@@ -71,7 +72,7 @@ git commit -m "sumo: update alias"
 
 ### UPDATE version number in README.md
 echo "updating version number in README.md"
-sed "s/${OLD_VERSION}/${NEW_VERSION}/" "${README_FILE}" >> "${README_FILE}.NEW"
+sed "s/${OLD_VERSION}/${NEW_VERSION}/" "${README_FILE}" >>"${README_FILE}.NEW"
 mv "${README_FILE}.NEW" "${README_FILE}"
 git add "${README_FILE}"
 git commit -m "update version number in README"

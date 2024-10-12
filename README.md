@@ -31,7 +31,7 @@ Alternatively, ```brew``` can compile SUMO from source with the following comman
 
 
     brew install [OPTIONS] sumo
-    
+
     ==> Options
     --with-examples
         Install docs/examples and docs/tutorial folder
