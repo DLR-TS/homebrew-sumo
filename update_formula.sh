@@ -20,7 +20,6 @@ fi
 
 NEW_VERSION="$1"
 SUMO_SRC_URL="$2"
-DATE_STRING=$(date +"%Y-%m-%d") # (currently unused, consider using or removing)
 NEW_MAJOR=$(echo "${NEW_VERSION}" | awk -F . '{ print $1 }')
 NEW_MINOR=$(echo "${NEW_VERSION}" | awk -F . '{ print $2 }')
 NEW_PATCH=$(echo "${NEW_VERSION}" | awk -F . '{ print $3 }')
@@ -31,7 +30,7 @@ brew uninstall sumo
 brew install sumo
 
 # figure out version number
-OLD_VERSION_WITH_REVISION=$(brew ls sumo --versions | awk '{print $2}')
+OLD_VERSION_WITH_REVISION=$(brew ls sumo --versions | awk '{print $2}' || true)
 OLD_VERSION=$(echo "${OLD_VERSION_WITH_REVISION}" | awk -F _ '{print $1}')
 OLD_MAJOR=$(echo "${OLD_VERSION}" | awk -F . '{ print $1 }')
 OLD_MINOR=$(echo "${OLD_VERSION}" | awk -F . '{ print $2 }')
