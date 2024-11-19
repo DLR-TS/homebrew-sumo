@@ -1,51 +1,51 @@
 class Sumo < Formula
   desc "Simulation of Urban MObility"
   homepage "https://www.eclipse.dev/sumo"
-  url "https://sumo.dlr.de/releases/1.20.0/sumo-src-1.20.0.tar.gz"
-  sha256 "34320ba1695db74c769d6b4931cb6bc6ec5b26c37e556451ab29d3963d6af8ec"
+  url "https://sumo.dlr.de/releases/1.21.0/sumo-src-1.21.0.tar.gz"
+  sha256 "1a246c30159abd4b5a878c0ce4eba3779bc6fce95f9c815c5f45567ceaa4ea53"
   license "EPL-2.0"
   head "https://github.com/eclipse-sumo/sumo.git", branch: "main"
 
-  bottle do
-    root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.20.0"
-    sha256 cellar: :any, arm64_sonoma:  "de437553bbfff2c123b1e2c90f2bc0e35693cb34a1f371887891cd837577a279"
-    sha256 cellar: :any, arm64_ventura: "0416595756b2ce18e84c6c760257982210ffb3df07c9c43f60ade8a26d34578d"
-    sha256 cellar: :any, ventura:       "711ff64f1d59c52b669a340cc3924097cdc1bbbc0000042b28e13156051d5f21"
-    sha256 cellar: :any, monterey:      "dd3c1d156ed3a48fbe61227a314b213ae4c6c903cf03edb4f5e344b3689a09c3"
-  end
+  # bottle do
+  #   root_url "https://github.com/DLR-TS/homebrew-sumo/releases/download/sumo-1.20.0"
+  #   sha256 cellar: :any, arm64_sonoma:  "de437553bbfff2c123b1e2c90f2bc0e35693cb34a1f371887891cd837577a279"
+  #   sha256 cellar: :any, arm64_ventura: "0416595756b2ce18e84c6c760257982210ffb3df07c9c43f60ade8a26d34578d"
+  #   sha256 cellar: :any, ventura:       "711ff64f1d59c52b669a340cc3924097cdc1bbbc0000042b28e13156051d5f21"
+  #   sha256 cellar: :any, monterey:      "dd3c1d156ed3a48fbe61227a314b213ae4c6c903cf03edb4f5e344b3689a09c3"
+  # end
 
   option "with-examples", "Install docs/examples and docs/tutorial folder"
 
-  depends_on "cmake" => :build
-  depends_on "fontconfig"
-  depends_on "fox"
+  depends_on "homebrew/core/cmake" => :build
+  depends_on "homebrew/core/fontconfig"
+  depends_on "homebrew/core/fox@1.6.58"
   # indirect dependencies due to fox
-  depends_on "freetype"
-  depends_on "gettext"
-  depends_on "jpeg-turbo"
-  depends_on "libice"
-  depends_on "libpng"
-  depends_on "libtiff"
-  depends_on "libx11"
-  depends_on "libxcursor"
-  depends_on "libxext"
-  depends_on "libxfixes"
-  depends_on "libxft"
-  depends_on "libxi"
-  depends_on "libxrandr"
-  depends_on "libxrender"
-  depends_on "mesa"
-  depends_on "mesa-glu"
+  depends_on "homebrew/core/freetype"
+  depends_on "homebrew/core/gettext"
+  depends_on "homebrew/core/jpeg-turbo"
+  depends_on "homebrew/core/libice"
+  depends_on "homebrew/core/libpng"
+  depends_on "homebrew/core/libtiff"
+  depends_on "homebrew/core/libx11"
+  depends_on "homebrew/core/libxcursor"
+  depends_on "homebrew/core/libxext"
+  depends_on "homebrew/core/libxfixes"
+  depends_on "homebrew/core/libxft"
+  depends_on "homebrew/core/libxi"
+  depends_on "homebrew/core/libxrandr"
+  depends_on "homebrew/core/libxrender"
+  depends_on "homebrew/core/mesa"
+  depends_on "homebrew/core/mesa-glu"
 
-  depends_on "proj"
-  depends_on "python" if build.head? && build.with?("examples")
-  depends_on "xerces-c"
+  depends_on "homebrew/core/proj@9.5.0"
+  depends_on "homebrew/core/python" if build.head? && build.with?("examples")
+  depends_on "homebrew/core/xerces-c@3.3.0"
 
-  depends_on "ffmpeg" => :optional
-  depends_on "gdal" => :optional
-  depends_on "gl2ps" => :optional
-  depends_on "open-scene-graph" => :optional
-  depends_on "swig" => :optional
+  depends_on "homebrew/core/ffmpeg" => :optional
+  depends_on "homebrew/core/gdal" => :optional
+  depends_on "homebrew/core/gl2ps" => :optional
+  depends_on "homebrew/core/open-scene-graph" => :optional
+  depends_on "homebrew/core/swig" => :optional
 
   # workaround due to dependency gdal -> numpy -> openblas -> gcc (originally gfortran)
   # (use 'brew deps --tree sumo' to see dependencies of higher levels)
@@ -122,8 +122,8 @@ class Sumo < Formula
       </edges>
     EOS
 
-    system "#{bin}/netconvert", "-n", "#{testpath}/nodes.xml", "-e", "#{testpath}/edges.xml", "-o",
-           "#{testpath}/net.xml"
+    system bin/"netconvert", "-n", testpath/"nodes.xml", "-e", testpath/"edges.xml", "-o",
+           testpath/"net.xml"
 
     (testpath/"flows.xml").write <<~EOS
       <routes>
@@ -131,6 +131,6 @@ class Sumo < Formula
       </routes>
     EOS
 
-    system "#{bin}/sumo", "-n", "#{testpath}/net.xml", "-r", "#{testpath}/flows.xml"
+    system bin/"sumo", "-n", testpath/"net.xml", "-r", testpath/"flows.xml"
   end
 end
